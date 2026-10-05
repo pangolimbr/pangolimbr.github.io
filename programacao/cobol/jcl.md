@@ -395,12 +395,12 @@ Para depurar, comece pela saída do job no SDSF, lendo `JESMSGLG`, `JESJCL` e `S
 
 <div class="wiki-topic-list">
 
-  <a class="wiki-topic" href="{{ 'programacao/cobol/cics/index.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'programacao/cobol/cics.html' | relative_url }}">
     <span class="wiki-topic-title">Próximo: CICS</span>
     <span class="wiki-topic-description">Conheça o processamento transacional online.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'programacao/cobol/exercicios/index.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'programacao/cobol/exercicios.html' | relative_url }}">
     <span class="wiki-topic-title">Exercícios</span>
     <span class="wiki-topic-description">Pratique o que viu nesta seção.</span>
   </a>
