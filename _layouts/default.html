@@ -1,23 +1,37 @@
 <!doctype html>
 <html lang="pt-BR" data-theme="pangolim">
-
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1c1c1a">
 
-  <!-- Aplica o tema salvo antes da página aparecer (evita flash) -->
+  <!-- Aplica o tema salvo antes de a página aparecer -->
   <script>
     try {
-      var t = localStorage.getItem("theme");
-      if (t) document.documentElement.dataset.theme = t;
-    } catch (e) {}
+      var temaSalvo = localStorage.getItem("theme");
+
+      if (temaSalvo) {
+        document.documentElement.dataset.theme = temaSalvo;
+      } else {
+        document.documentElement.dataset.theme = "pangolim";
+      }
+    } catch (e) {
+      document.documentElement.dataset.theme = "pangolim";
+    }
   </script>
 
-  <meta name="description" content="{{ page.description | default: site.description | escape }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}Pangolim">
-  <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+  <meta
+    name="description"
+    content="{{ page.description | default: site.description | escape }}"
+  >
+  <meta
+    property="og:title"
+    content="{% if page.title %}{{ page.title }} · {% endif %}Pangolim"
+  >
+  <meta
+    property="og:description"
+    content="{{ page.description | default: site.description | escape }}"
+  >
   <meta property="og:type" content="website">
 
   <title>
@@ -37,10 +51,15 @@
     href="{{ '/images/favicon.png' | relative_url }}"
   >
 
-  <!-- themes.css ANTES do style.css -->
-  <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-
+  <!-- Carregue as regras dos temas antes do CSS geral -->
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/themes.css' | relative_url }}"
+  >
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/style.css' | relative_url }}"
+  >
 </head>
 
 <body>
