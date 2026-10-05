@@ -4,12 +4,11 @@
    ========================================================= */
 
 :root {
-  /* Só layout aqui. As cores ficam no themes.css */
   --sidebar-width: 252px;
   --sidebar-collapsed-width: 54px;
   --sidebar-gap: 0px;
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 
@@ -1413,7 +1412,7 @@ pre code {
   background-color: var(--bg-code);
   color: var(--code-text);
   border: 1px solid var(--bg-code-border);
-  box-shadow: 0 2px 8px rgba(55, 45, 35, 0.12);
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
 /* Texto padrão: comandos bash, YAML simples e conteúdo sem token */

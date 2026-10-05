@@ -12,12 +12,14 @@
 
 /* =========================================================
    Pangolim
-   Claro terroso com blocos de código escuros
+   Tema claro, neutro e discreto
    ========================================================= */
 
 [data-theme="pangolim"] {
+  color-scheme: light;
+
   /* =========================================================
-     Fundos gerais — tema claro
+     Fundos gerais
      ========================================================= */
   --bg-page: #f5f5f3;
   --bg-sidebar: #eeeeec;
@@ -26,7 +28,7 @@
   --bg-hover: #e8e8e5;
 
   /* =========================================================
-     Código e exemplos — claro
+     Código e exemplos
      ========================================================= */
   --bg-code: #eeeeec;
   --bg-code-header: #e4e4e1;
@@ -57,7 +59,7 @@
   --accent-soft: rgba(117, 107, 95, 0.12);
 
   /* =========================================================
-     Sombra — bem discreta
+     Sombra
      ========================================================= */
   --shadow: rgba(0, 0, 0, 0.08);
 }
