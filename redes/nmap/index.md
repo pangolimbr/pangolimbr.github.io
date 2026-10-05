@@ -192,7 +192,7 @@ Uma porta aberta não confirma vulnerabilidade. Uma versão detectada não prova
 
 | Página | Conteúdo |
 | --- | --- |
-| [Comandos](redes/nmap/nmap-comandos.html) | Referência de parâmetros e perfis de execução |
-| [Troubleshooting](redes/nmap/nmap-troubleshooting.html) | Diagnóstico de rede, DNS, firewall e serviços |
-| [NSE](redes/nmap/nmap-nse.html) | Scripts, automação e auditoria defensiva |
-| [Segurança](redes/nmap/nmap-seguranca.html) | Baselines, hardening, priorização e reteste |
+| [Comandos](nmap-comandos.html) | Referência de parâmetros e perfis de execução |
+| [Troubleshooting](nmap-troubleshooting.html) | Diagnóstico de rede, DNS, firewall e serviços |
+| [NSE](nmap-nse.html) | Scripts, automação e auditoria defensiva |
+| [Segurança](nmap-seguranca.html) | Baselines, hardening, priorização e reteste |

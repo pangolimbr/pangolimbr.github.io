@@ -95,7 +95,7 @@ nmap -sT -sV --version-light -p 22,80,443 192.168.56.20
 
 ## 6. NSE seguro
 
-Veja a página [NSE](nse.html) para documentação completa. Para uma coleta inicial, prefira scripts explícitos:
+Veja a página [NSE](nmap-nse.html) para documentação completa. Para uma coleta inicial, prefira scripts explícitos:
 
 ```bash
 nmap -sT -sV --version-light   -p 22,80,443   --script ssh-hostkey,http-title,http-headers,ssl-cert   192.168.56.20
