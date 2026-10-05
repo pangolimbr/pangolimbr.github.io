@@ -52,7 +52,7 @@ Este documento apresenta:
 
 
 ### 2.1 O que é NSE
-
+{:.no_toc}
 
 O NSE é uma extensão do Nmap para automatizar tarefas de rede.
 
@@ -94,7 +94,7 @@ O NSE pode ser usado para:
 
 
 ### 2.2 Fluxo de execução
-
+{:.no_toc}
 
 ```text
 Definir escopo autorizado
@@ -129,7 +129,7 @@ Na maioria dos casos, scripts NSE são executados em conjunto com um scan de por
 
 
 ### 2.3 Tipos de scripts
-
+{:.no_toc}
 
 O NSE possui quatro tipos principais de scripts:
 
@@ -172,7 +172,7 @@ Postrule
 
 
 ### 3.1 Instalação do Nmap
-
+{:.no_toc}
 
 No Rocky Linux, RHEL, AlmaLinux ou Fedora:
 
@@ -203,7 +203,7 @@ nmap --version
 
 
 ### 3.2 Diretório dos scripts NSE
-
+{:.no_toc}
 
 Em distribuições Linux, os scripts geralmente ficam em um destes caminhos:
 
@@ -322,7 +322,7 @@ Os scripts NSE possuem categorias. A categoria ajuda a entender a finalidade e o
 
 
 ### 4.1 Categoria `safe`
-
+{:.no_toc}
 
 A categoria `safe` é a mais apropriada para inventário e auditoria inicial.
 
@@ -361,7 +361,7 @@ nmap -sT -sV \
 
 
 ### 4.2 Categoria `default`
-
+{:.no_toc}
 
 A opção:
 
@@ -402,7 +402,7 @@ nmap --script-help default
 
 
 ### 4.3 Categorias que exigem cuidado
-
+{:.no_toc}
 
 Evite as categorias abaixo em produção sem aprovação explícita, testes prévios e janela de mudança:
 
@@ -442,7 +442,7 @@ Motivos:
 
 
 ### 5.1 Executar scripts padrão
-
+{:.no_toc}
 
 ```bash
 nmap -sC 192.168.56.20
@@ -461,7 +461,7 @@ nmap -sT -sV -sC -p 22,80,443 192.168.56.20
 
 
 ### 5.2 Executar um script específico
-
+{:.no_toc}
 
 Exemplo: obter o título de páginas HTTP/HTTPS.
 
@@ -500,7 +500,7 @@ nmap -sT \
 
 
 ### 5.3 Executar vários scripts
-
+{:.no_toc}
 
 Scripts separados por vírgula:
 
@@ -528,7 +528,7 @@ nmap -sT \
 
 
 ### 5.4 Usar padrões com curinga
-
+{:.no_toc}
 
 Todos os scripts cujo nome começa com `http-`:
 
@@ -559,7 +559,7 @@ nmap -sT \
 
 
 ### 5.5 Expressões booleanas
-
+{:.no_toc}
 
 O Nmap permite combinar categorias e nomes com:
 
@@ -669,10 +669,10 @@ nmap --script-help "http-*"
 
 
 ### 7.1 HTTP e HTTPS
-
+{:.no_toc}
 
 #### Título da aplicação
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -695,7 +695,7 @@ Uso:
 
 
 #### Cabeçalhos HTTP
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -719,7 +719,7 @@ Uso:
 
 
 #### Cabeçalhos de segurança
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -749,7 +749,7 @@ O resultado deve ser validado com a equipe de desenvolvimento ou segurança. Aus
 
 
 #### Métodos HTTP
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -786,7 +786,7 @@ Não conclua risco apenas porque um método aparece na resposta. Valide se ele �
 
 
 #### Cookies HTTP
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -812,7 +812,7 @@ Uso:
 
 
 #### Chaves públicas SSH
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -849,7 +849,7 @@ Uma chave SSH duplicada entre hosts diferentes pode indicar clonagem de VM, imag
 
 
 #### Algoritmos SSH
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -888,10 +888,10 @@ sudo cat /etc/ssh/sshd_config
 
 
 ### 7.3 TLS e certificados
-
+{:.no_toc}
 
 #### Certificado TLS
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -927,7 +927,7 @@ nmap -sT \
 
 
 #### Cifras TLS
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -952,10 +952,10 @@ Execute primeiro em homologação. A enumeração de cifras pode gerar múltipla
 
 
 ### 7.4 DNS
-
+{:.no_toc}
 
 #### Recursão DNS
-
+{:.no_toc}
 
 ```bash
 nmap -sU \
@@ -980,7 +980,7 @@ Em DNS interno, recursão pode ser esperada. Em DNS público autoritativo, recur
 
 
 #### Informações do servidor DNS
-
+{:.no_toc}
 
 ```bash
 nmap -sU \
@@ -1003,7 +1003,7 @@ Uso:
 
 
 #### Verificação de zona
-
+{:.no_toc}
 
 ```bash
 nmap -sU \
@@ -1026,10 +1026,10 @@ Uso:
 
 
 ### 7.5 SNMP
-
+{:.no_toc}
 
 #### Descrição do sistema
-
+{:.no_toc}
 
 ```bash
 nmap -sU \
@@ -1054,10 +1054,10 @@ Uso:
 
 
 ### 7.6 SMB e Windows
-
+{:.no_toc}
 
 #### Informações do sistema SMB
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -1082,7 +1082,7 @@ A saída pode ser limitada por políticas de segurança, firewall, autenticaçã
 
 
 ### 7.7 Bancos de dados
-
+{:.no_toc}
 
 Para bancos de dados, priorize inventário de portas, versão e necessidade de exposição. Não execute scripts que consultem tabelas, credenciais ou façam alterações sem aprovação específica.
 
@@ -1119,7 +1119,7 @@ Para produção, a validação preferencial deve ocorrer com o time de banco, in
 
 
 ### 8.1 Sintaxe
-
+{:.no_toc}
 
 Argumentos NSE são informados com:
 
@@ -1157,7 +1157,7 @@ nmap -sT \
 
 
 ### 8.2 Consultar argumentos aceitos
-
+{:.no_toc}
 
 Sempre consulte a ajuda do script antes de usar argumentos:
 
@@ -1184,7 +1184,7 @@ Não invente nomes de argumentos. Argumentos incorretos podem ser ignorados sile
 
 
 ### 8.3 Arquivo de argumentos
-
+{:.no_toc}
 
 Para não expor argumentos sensíveis no histórico do shell, use um arquivo protegido.
 
@@ -1230,7 +1230,7 @@ Não salve senhas, tokens, comunidades SNMP ou arquivos de argumentos sensíveis
 
 
 ### 9.1 Inventário básico de servidores
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -1258,7 +1258,7 @@ Objetivo:
 
 
 ### 9.2 Auditoria básica de HTTPS
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -1283,7 +1283,7 @@ Objetivo:
 
 
 ### 9.3 Validação de DNS interno
-
+{:.no_toc}
 
 ```bash
 nmap -sU \
@@ -1306,7 +1306,7 @@ Objetivo:
 
 
 ### 9.4 Validação de SSH
-
+{:.no_toc}
 
 ```bash
 nmap -sT \
@@ -1333,7 +1333,7 @@ Objetivo:
 
 
 ### 10.1 Formatos de saída
-
+{:.no_toc}
 
 | Opção | Formato | Uso |
 | --- | --- | --- |
@@ -1374,7 +1374,7 @@ servidor-01.gnmap
 
 
 ### 10.2 Dados sensíveis
-
+{:.no_toc}
 
 A saída do NSE pode conter:
 
@@ -1411,7 +1411,7 @@ Registrar data, origem e autorização da execução.
 
 
 ### 11.1 Script de inventário
-
+{:.no_toc}
 
 Criar arquivo:
 
@@ -1478,7 +1478,7 @@ Exemplo de arquivo de alvos:
 
 
 ### 11.2 Cuidados na automação
-
+{:.no_toc}
 
 Antes de agendar uma automação:
 
@@ -1565,7 +1565,7 @@ Para produção, grave a saída em diretório protegido, registre o identificado
 
 
 ### 13.1 Estrutura básica
-
+{:.no_toc}
 
 Scripts NSE são escritos em Lua e normalmente possuem:
 
@@ -1640,7 +1640,7 @@ nmap -sn \
 
 
 ### 13.2 Script simples para serviço HTTP
-
+{:.no_toc}
 
 Exemplo didático que roda apenas quando o Nmap identifica HTTP ou HTTPS.
 
@@ -1694,7 +1694,7 @@ nmap -sT \
 
 
 ### 13.3 Boas práticas para scripts próprios
-
+{:.no_toc}
 
 * Começar com scripts sem alteração de estado
 * Evitar armazenar credenciais no código
@@ -1715,7 +1715,7 @@ nmap -sT \
 
 
 ### 14.1 Script não foi executado
-
+{:.no_toc}
 
 Verificar se o script existe:
 
@@ -1756,7 +1756,7 @@ Muitos scripts possuem `portrule`, portanto só executam quando o serviço ou po
 
 
 ### 14.2 A saída está vazia
-
+{:.no_toc}
 
 Possíveis causas:
 
@@ -1786,7 +1786,7 @@ nmap -sT -sV -vv \
 
 
 ### 14.3 Exibir rastreio de scripts
-
+{:.no_toc}
 
 Para depurar comunicação de scripts em laboratório, use:
 
@@ -1807,7 +1807,7 @@ nmap -sT \
 
 
 ### 14.4 Host parece indisponível
-
+{:.no_toc}
 
 Validar rota:
 
@@ -1855,7 +1855,7 @@ Não use `-Pn` como padrão em redes grandes: isso pode aumentar tempo, tráfego
 
 
 ### Antes
-
+{:.no_toc}
 
 - [ ] Existe autorização formal?
 - [ ] Os IPs, domínios e portas estão definidos?
@@ -1868,7 +1868,7 @@ Não use `-Pn` como padrão em redes grandes: isso pode aumentar tempo, tráfego
 
 
 ### Durante
-
+{:.no_toc}
 
 - [ ] O tráfego está dentro do esperado?
 - [ ] Há alertas de indisponibilidade?
@@ -1878,7 +1878,7 @@ Não use `-Pn` como padrão em redes grandes: isso pode aumentar tempo, tráfego
 
 
 ### Depois
-
+{:.no_toc}
 
 - [ ] Resultados foram comparados com CMDB e inventário?
 - [ ] Achados foram validados no host?
