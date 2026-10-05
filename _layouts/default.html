@@ -2294,31 +2294,28 @@
         }
       );
 
+const css = getComputedStyle(document.documentElement);
+const v = (name) => css.getPropertyValue(name).trim();
 
-    const css = getComputedStyle(document.documentElement);
-    const v = name => css.getPropertyValue(name).trim();
+mermaid.initialize({
+  startOnLoad: true,
+  theme: "base",
 
+  themeVariables: {
+    background: v("--bg-main"),
 
-    mermaid.initialize({
+    primaryColor: v("--bg-card"),
+    primaryTextColor: v("--text-strong"),
+    primaryBorderColor: v("--border"),
 
-      startOnLoad: true,
+    lineColor: v("--accent"),
 
-      theme: 'base',
+    secondaryColor: v("--bg-hover"),
+    tertiaryColor: v("--bg-sidebar"),
 
-      themeVariables: {
-
-        background: v('--bg-main'),
-        primaryColor: v('--bg-card'),
-        primaryTextColor: v('--text-strong'),
-        primaryBorderColor: v('--border'),
-        lineColor: v('--accent'),
-        secondaryColor: v('--bg-hover'),
-        tertiaryColor: v('--bg-sidebar'),
-        nodeTextColor: v('--text-strong')
-
-      }
-
-    });
+    nodeTextColor: v("--text-strong")
+  }
+});
 
   </script>
 

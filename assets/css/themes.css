@@ -10,35 +10,8 @@
 
 /* ---------- Temas ---------- */
 
-/* =========================================================
-   Pangolim
-   Tema escuro terroso, com textura de escamas no fundo
-   ========================================================= */
-
-[data-theme="pangolim"] {
-  --bg-page: #141414;
-  --bg-sidebar: #10100f;
-  --bg-main: #141414;
-  --bg-card: #1c1b19;
-  --bg-code: #0d0d0c;
-  --bg-hover: #282622;
-
-  --text: #b8afa2;
-  --text-strong: #f0eadf;
-  --text-muted: #7b746a;
-
-  --border: #39352f;
-  --border-soft: #27241f;
-
-  --accent: #b09570;
-  --accent-hover: #c9ad83;
-  --accent-soft: rgba(176, 149, 112, 0.14);
-
-  --shadow: rgba(0, 0, 0, 0.45);
-}
-
 /* Contraste alto, bordas quase invisíveis */
-[data-theme="pangolim2"] {
+[data-theme="pangolim"] {
   --bg-page:#e8e1d5; --bg-sidebar:#d8cfc0; --bg-main:#e8e1d5; --bg-card:#eee8de; --bg-code:#ded6c9; --bg-hover:#ddd5c8;
   --text:#625b51; --text-strong:#292621; --text-muted:#91887b;
   --border:#cfc5b6; --border-soft:#ddd5c9;

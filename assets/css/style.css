@@ -1840,34 +1840,3 @@ blockquote p:last-child {
     overflow-x: auto;
   }
 }
-
-/* =========================================================
-   Textura de escamas — Pangolim
-   ========================================================= */
-[data-theme="pangolim"] body {
-  background-color: #141414;
-
-  background-image:
-    radial-gradient(
-      ellipse 18px 12px at 50% 0,
-      transparent 58%,
-      rgba(255, 255, 255, 0.035) 60%,
-      rgba(255, 255, 255, 0.035) 68%,
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 18px 12px at 50% 0,
-      transparent 58%,
-      rgba(255, 255, 255, 0.025) 60%,
-      rgba(255, 255, 255, 0.025) 68%,
-      transparent 70%
-    );
-
-  background-size:
-    36px 24px,
-    36px 24px;
-
-  background-position:
-    0 0,
-    18px 12px;
-}
