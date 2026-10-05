@@ -60,6 +60,10 @@ Comece pelos fundamentos e avance para os serviços de resolução de nomes.
     <span class="wiki-topic-description">Encaminhamento de consultas DNS no BIND.</span>
   </a>
 
+  <a class="wiki-topic" href="{{ 'redes/nmap/index.html' | relative_url }}">
+    <span class="wiki-topic-title">Nmap</span>
+    <span class="wiki-topic-description">Conceitos.</span>
+  </a>
 </div>
 
 ---
