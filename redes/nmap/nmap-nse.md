@@ -265,6 +265,7 @@ ls -1 /usr/share/nmap/scripts/dns-*
 
 
 ### 3.3 Banco de scripts
+{:.no_toc}
 
 
 O Nmap mantém um banco de dados de scripts para localizar rapidamente scripts e categorias:
@@ -809,7 +810,7 @@ Uso:
 
 
 ### 7.2 SSH
-
+{:.no_toc}
 
 #### Chaves públicas SSH
 {:.no_toc}
