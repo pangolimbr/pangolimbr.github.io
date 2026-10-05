@@ -1402,7 +1402,7 @@ pre code {
 }
 
 /* =========================================================
-   Pangolim — blocos de código
+   Pangolim — comandos e exemplos claros
    ========================================================= */
 
 [data-theme="pangolim"] pre,
@@ -1412,16 +1412,17 @@ pre code {
 [data-theme="pangolim"] .highlighter-rouge pre.highlight {
   background-color: var(--bg-code);
   color: var(--code-text);
-  border-color: var(--bg-code-border);
+  border: 1px solid var(--bg-code-border);
+  box-shadow: 0 2px 8px rgba(55, 45, 35, 0.12);
 }
 
-/* Texto sem token do syntax highlighting */
+/* Texto padrão: comandos bash, YAML simples e conteúdo sem token */
 [data-theme="pangolim"] pre code,
 [data-theme="pangolim"] .highlight code,
 [data-theme="pangolim"] .highlight pre,
 [data-theme="pangolim"] .highlight pre code,
 [data-theme="pangolim"] .highlighter-rouge code {
-  background-color: transparent;
+  background: transparent;
   color: var(--code-text);
 }
 
@@ -1474,6 +1475,68 @@ pre code {
 
 .highlight .na {
   color: #79c0ff;
+}
+
+/* =========================================================
+   Pangolim — syntax highlighting para fundo claro
+   Deve ficar depois da paleta fixa de .highlight
+   ========================================================= */
+
+/* Palavras-chave: if, else, function, true, false, kubectl etc. */
+[data-theme="pangolim"] .highlight .k,
+[data-theme="pangolim"] .highlight .kd,
+[data-theme="pangolim"] .highlight .kn,
+[data-theme="pangolim"] .highlight .kp,
+[data-theme="pangolim"] .highlight .kr {
+  color: #9b3c32;
+}
+
+/* Funções, built-ins e comandos reconhecidos */
+[data-theme="pangolim"] .highlight .nb,
+[data-theme="pangolim"] .highlight .nf,
+[data-theme="pangolim"] .highlight .fm {
+  color: #285f3d;
+}
+
+/* Strings */
+[data-theme="pangolim"] .highlight .s,
+[data-theme="pangolim"] .highlight .s1,
+[data-theme="pangolim"] .highlight .s2,
+[data-theme="pangolim"] .highlight .sb,
+[data-theme="pangolim"] .highlight .sc {
+  color: #295d7a;
+}
+
+/* Números */
+[data-theme="pangolim"] .highlight .m,
+[data-theme="pangolim"] .highlight .mi,
+[data-theme="pangolim"] .highlight .mf {
+  color: #6b4c99;
+}
+
+/* Comentários */
+[data-theme="pangolim"] .highlight .c,
+[data-theme="pangolim"] .highlight .c1,
+[data-theme="pangolim"] .highlight .cm {
+  color: #6e665c;
+  font-style: italic;
+}
+
+/* Operadores */
+[data-theme="pangolim"] .highlight .o,
+[data-theme="pangolim"] .highlight .ow {
+  color: #784d80;
+}
+
+/* Variáveis e nomes */
+[data-theme="pangolim"] .highlight .n,
+[data-theme="pangolim"] .highlight .nv {
+  color: #7a4c18;
+}
+
+/* Atributos, comum em YAML, HTML e configurações */
+[data-theme="pangolim"] .highlight .na {
+  color: #265c78;
 }
 
 
