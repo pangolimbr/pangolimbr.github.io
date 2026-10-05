@@ -1,14 +1,15 @@
 ---
 layout: default
 title: Nmap — Comandos
+description: Referência rápida de comandos Nmap para inventário, diagnóstico e validação defensiva.
 ---
 
-# Nmap: referência rápida de parâmetros
+# Nmap: Comandos e Referência Operacional
 {:.no_toc}
 
-Referência operacional para inventário e validação defensiva em redes autorizadas.
+Referência para executar varreduras previsíveis, limitadas e úteis em ativos autorizados.
 
-> **Uso autorizado:** execute varreduras apenas em ativos próprios ou para os quais exista autorização formal e escopo definido. Este material é voltado a inventário, validação de exposição, troubleshooting e hardening. Não inclui instruções de exploração, negação de serviço, evasão ou força bruta.
+> **Uso autorizado:** execute varreduras apenas em redes, hosts e serviços próprios ou formalmente autorizados. Defina escopo, janela, responsáveis e critério de parada. Este material prioriza inventário, diagnóstico e hardening; não cobre exploração, força bruta, evasão ou negação de serviço.
 
 ---
 
@@ -18,116 +19,183 @@ Referência operacional para inventário e validação defensiva em redes autori
 
 ---
 
-## 1. Estrutura do comando
+## 1. Estrutura
 
 ```bash
-nmap [tipo-de-scan] [descoberta] [portas] [detecção] [saída] ALVO
+nmap [descoberta] [tipo-de-scan] [portas] [detecção] [NSE] [saída] ALVO
 ```
 
-Exemplo de baixo impacto para um servidor autorizado:
+Exemplo:
 
 ```bash
-nmap -sT -sV -p 22,80,443 -oN servidor-web.txt 192.168.56.20
+nmap -n -sT -sV --version-light -p 22,443   -oA evidencias/servidor-01   192.168.56.20
 ```
 
-## 2. Seleção de alvos
+## 2. Alvos
 
-| Sintaxe | Uso |
-| --- | --- |
-| `192.168.56.20` | Um host explícito |
-| `192.168.56.20-30` | Intervalo controlado |
-| `192.168.56.0/28` | CIDR pequeno em laboratório |
-| `-iL alvos.txt` | Arquivo de alvos aprovados |
-| `--exclude 192.168.56.1` | Exclusão documentada |
+| Opção | Exemplo | Uso |
+| --- | --- | --- |
+| Host único | `192.168.56.20` | Diagnóstico individual |
+| Intervalo | `192.168.56.20-30` | Grupo pequeno e aprovado |
+| CIDR | `192.168.56.0/28` | Laboratório ou segmento limitado |
+| Arquivo | `-iL alvos.txt` | Lista revisada e auditável |
+| Exclusão | `--exclude 192.168.56.1` | Retirar gateway ou ativo sensível |
+| Sem DNS | `-n` | Evitar resolução reversa e atrasos |
 
 ```bash
-nmap -sT -p 22,443 -iL alvos-aprovados.txt
+nmap -n -sT -p 22,443 -iL alvos-aprovados.txt
 ```
 
 ## 3. Descoberta de hosts
 
-| Opção | Finalidade |
-| --- | --- |
-| `-sn` | Descoberta sem varredura de portas |
-| `-Pn` | Não executar descoberta; use apenas quando houver justificativa |
-| `-n` | Não resolver DNS, tornando a execução mais previsível |
-|
+| Opção | Uso | Quando usar |
+| --- | --- | --- |
+| `-sn` | Descoberta sem portas | Inventário inicial |
+| `-Pn` | Considera hosts ativos | Somente quando descoberta é bloqueada e há justificativa |
+| `-n` | Desativa DNS | Execução previsível e mais rápida |
 
 ```bash
 nmap -sn -n 192.168.56.0/28
 ```
 
-`-Pn` pode aumentar muito o tempo e o volume de tráfego porque faz o Nmap tratar os alvos como ativos; não o use como padrão. [cite:88]
+Evite `-Pn` em faixas grandes: ele pode gerar tráfego contra todos os endereços e aumentar muito o tempo de scan.
 
-## 4. Portas e protocolos
+## 4. TCP e UDP
 
-| Opção | Exemplo | Finalidade |
+| Opção | Descrição | Observação |
 | --- | --- | --- |
-| `-p 22` | `-p 22` | Uma porta |
-| `-p 22,80,443` | `-p 22,80,443` | Lista curta |
-| `-p 8000-8100` | `-p 8000-8100` | Intervalo justificado |
-| `--top-ports 20` | `--top-ports 20` | Portas frequentes, para triagem |
-| `-sT` | `-sT` | TCP connect; útil sem privilégios especiais |
-| `-sU` | `-sU -p 53,123` | UDP; execute de forma limitada e com cuidado |
+| `-sT` | TCP connect | Boa escolha para diagnóstico simples |
+| `-sU` | Varredura UDP | Limite portas e espere resultados mais lentos |
+| `-p` | Define portas | Prefira lista explícita |
+| `--top-ports` | Portas frequentes | Útil para triagem, não para baseline completo |
 
-Para ambientes críticos, comece por portas conhecidas do serviço. Uma varredura UDP pode ser mais lenta e gerar resultados ambíguos por filtragem ou ausência de resposta.
+```bash
+# SSH e HTTPS
+nmap -sT -p 22,443 192.168.56.20
+
+# DNS UDP controlado
+nmap -sU -p 53 192.168.56.53
+
+# Intervalo justificado
+nmap -sT -p 8000-8010 192.168.56.20
+```
 
 ## 5. Detecção de serviço
 
-| Opção | Finalidade |
-| --- | --- |
-| `-sV` | Tenta identificar serviço e versão |
-| `--version-light` | Menos sondas; útil em triagem com menor custo |
-| `--version-all` | Mais intensidade; exige autorização e janela adequada |
+| Opção | Efeito | Uso recomendado |
+| --- | --- | --- |
+| `-sV` | Detecta serviço e versão | Inventário e troubleshooting |
+| `--version-light` | Menos sondas | Primeira coleta em produção |
+| `--version-all` | Mais sondas | Laboratório ou janela autorizada |
+| `-O` | Tenta inferir sistema operacional | Validar em escopo restrito; resultado pode ser impreciso |
 
 ```bash
-nmap -sT -sV --version-light -p 22,443 192.168.56.20
+nmap -sT -sV --version-light -p 22,80,443 192.168.56.20
 ```
 
-## 6. Saída e evidência
+## 6. NSE seguro
+
+Veja a página [NSE](nse.html) para documentação completa. Para uma coleta inicial, prefira scripts explícitos:
+
+```bash
+nmap -sT -sV --version-light   -p 22,80,443   --script ssh-hostkey,http-title,http-headers,ssl-cert   192.168.56.20
+```
+
+```bash
+nmap --script-help ssh-hostkey
+```
+
+Não use `--script all`, categorias agressivas ou scripts de terceiros sem revisão e autorização.
+
+## 7. Tempo e estabilidade
+
+| Opção | Aplicação | Observação |
+| --- | --- | --- |
+| `-T2` | Ambiente sensível | Mais conservador |
+| `-T3` | Padrão equilibrado | Recomendação inicial |
+| `--max-retries 2` | Limita tentativas | Pode reduzir detecção em rede instável |
+| `--host-timeout 2m` | Limita tempo por host | Evita travar toda a execução |
+| `--reason` | Explica o motivo do estado | Excelente para troubleshooting |
+
+```bash
+nmap -n -sT -T2 --reason --max-retries 2   -p 22,443 192.168.56.20
+```
+
+Não acelere scans de produção por conveniência. Primeiro reduza escopo, portas e intensidade.
+
+## 8. Saída e evidências
 
 | Opção | Resultado |
 | --- | --- |
-| `-oN arquivo.txt` | Saída normal legível |
-| `-oX arquivo.xml` | XML para ferramenta ou processamento |
-| `-oG arquivo.gnmap` | Formato grepável legado |
-| `-oA prefixo` | Gera normal, XML e grepável |
-| `-v` / `-vv` | Mais detalhes na tela |
+| `-oN arquivo.txt` | Texto legível |
+| `-oX arquivo.xml` | XML para integração |
+| `-oG arquivo.gnmap` | Formato legado grepável |
+| `-oA prefixo` | Gera os três formatos |
+| `-v` / `-vv` | Mais detalhes no terminal |
 
 ```bash
 mkdir -p evidencias
-nmap -sT -sV -p 22,443 -oA evidencias/web-2026-10-05 192.168.56.20
+nmap -n -sT -sV --version-light -p 22,443   -oA evidencias/ssh-https-$(date +%F)   192.168.56.20
 ```
 
-## 7. Desempenho e cuidado
+## 9. Perfis prontos
 
-| Opção | Orientação |
+### Descoberta em laboratório
+
+```bash
+nmap -sn -n 192.168.56.0/24
+```
+
+### Inventário de Linux
+
+```bash
+nmap -n -sT -sV --version-light   -p 22,80,443   -iL linux-aprovados.txt
+```
+
+### Validação de exposição pós-mudança
+
+```bash
+nmap -n -sT --reason   -p 22,80,443,3306,5432   192.168.56.20
+```
+
+### Servidor DNS interno
+
+```bash
+nmap -n -sT -sU -sV --version-light   -p T:53,U:53   192.168.56.53
+```
+
+### HTTPS com certificado e cabeçalhos
+
+```bash
+nmap -n -sT -p 443   --script ssl-cert,http-title,http-headers,http-security-headers   192.168.56.20
+```
+
+## 10. Quando evitar opções
+
+| Opção ou padrão | Por que evitar como padrão |
 | --- | --- |
-| `-T2` | Mais conservador; útil para redes sensíveis |
-| `-T3` | Padrão equilibrado para muitos casos |
-| `--max-retries 2` | Limita repetição; documente a perda potencial de detecção |
-| `--host-timeout 2m` | Evita host problemático consumir a janela toda |
+| `-Pn` em rede ampla | Trata todos os IPs como ativos |
+| `-p-` em produção | Amplia tráfego, tempo e superfície de impacto |
+| `-sU` sem limitar portas | Pode ser lento e ambíguo |
+| `-T4` ou `-T5` | Pode aumentar perda, alertas e impacto operacional |
+| `-A` sem revisão | Combina múltiplas técnicas; prefira parâmetros explícitos |
+| `--script all` | Pode incluir scripts inadequados ao escopo |
 
-Evite acelerar agressivamente scans de produção. Se houver degradação, pare a execução, registre o horário e envolva a equipe responsável.
-
-## 8. Perfis defensivos
-
-### Inventário de SSH e HTTPS
+## 11. Consulta rápida
 
 ```bash
-nmap -sT -sV --version-light -p 22,443 -oN inventario.txt -iL alvos-aprovados.txt
+# Ajuda geral
+nmap --help
+
+# Ajuda de parâmetro
+man nmap
+
+# Ajuda de script NSE
+nmap --script-help ssl-cert
+
+# Detalhar por que cada estado foi atribuído
+nmap --reason -sT -p 22,443 192.168.56.20
+
+# Sem resolução DNS
+nmap -n -sT -p 22,443 192.168.56.20
 ```
-
-### Verificação de DNS autorizado
-
-```bash
-nmap -sU -sV -p 53 -oN dns-udp.txt 192.168.56.53
-```
-
-### Confirmação pós-hardening
-
-```bash
-nmap -sT -p 22,80,443,3306,5432 192.168.56.20
-```
-
-O último exemplo confirma que apenas portas necessárias permanecem expostas; não substitui revisão de firewall, autenticação ou logs.

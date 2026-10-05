@@ -1,14 +1,15 @@
 ---
 layout: default
 title: Nmap
+description: Conceitos, instalação, funcionamento e primeiros passos com Nmap.
 ---
 
-# Nmap: conceitos, instalação e funcionamento
+# Nmap: Conceitos, Instalação e Funcionamento
 {:.no_toc}
 
-O **Nmap** (Network Mapper) é uma ferramenta de descoberta de rede e auditoria de segurança. Em um escopo autorizado, ele ajuda a identificar hosts alcançáveis, portas expostas, serviços, versões e evidências de controles de filtragem.
+O **Nmap** (Network Mapper) é uma ferramenta de descoberta de rede, inventário e auditoria de segurança. Em um ambiente autorizado, ele ajuda a responder quais hosts estão alcançáveis, quais portas estão expostas, quais serviços respondem e quais controles de filtragem podem estar no caminho.
 
-> **Uso autorizado:** execute varreduras apenas em ativos próprios ou para os quais exista autorização formal e escopo definido. Este material é voltado a inventário, validação de exposição, troubleshooting e hardening. Não inclui instruções de exploração, negação de serviço, evasão ou força bruta.
+> **Uso autorizado:** execute varreduras apenas em redes, hosts e serviços próprios ou formalmente autorizados. Defina escopo, janela, responsáveis e critério de parada. Este material prioriza inventário, diagnóstico e hardening; não cobre exploração, força bruta, evasão ou negação de serviço.
 
 ---
 
@@ -18,41 +19,38 @@ O **Nmap** (Network Mapper) é uma ferramenta de descoberta de rede e auditoria 
 
 ---
 
-## 1. Conceitos
+## 1. Objetivo
 
-| Termo | Significado prático |
+Use Nmap para criar inventário técnico, validar exposição após mudanças, investigar conectividade e apoiar hardening. O resultado é uma observação de rede: valide sempre com configuração do host, firewall, DNS, CMDB e logs.
+
+| Pergunta | Exemplo de evidência |
 | --- | --- |
-| Host discovery | Descoberta de endereços que respondem às sondas configuradas |
-| Porta | Identificador TCP ou UDP de um serviço de rede |
-| Serviço | Processo que escuta uma porta, como SSH, DNS ou HTTPS |
-| Estado da porta | Resultado observado: `open`, `closed`, `filtered` ou outros |
-| Fingerprint | Evidência usada para inferir produto, versão ou sistema operacional |
-| Escopo | Lista aprovada de IPs, redes, janelas e técnicas permitidas |
+| O host está alcançável? | Resposta à descoberta de host ou conexão TCP |
+| Uma porta está exposta? | Estado `open`, `closed` ou `filtered` |
+| Qual serviço responde? | Banner e detecção de versão com `-sV` |
+| A exposição é esperada? | Comparação com baseline e owner do serviço |
+| A correção funcionou? | Scan comparativo antes e depois da mudança |
 
-Uma porta `open` sugere que há serviço aceitando conexões. `closed` indica que o host respondeu, mas nenhum serviço aceita naquela porta. `filtered` normalmente indica que firewall, ACL ou outro filtro impediu uma conclusão. Não trate a saída como prova absoluta: rota, NAT, proxy, IDS/IPS e política de firewall alteram o resultado.
+## 2. Cenário de laboratório
 
-## 2. Fluxo de uma varredura
+| Host | IP | Papel |
+| --- | --- | --- |
+| `admin-lab` | `192.168.56.10` | Estação de administração com Nmap |
+| `web-lab` | `192.168.56.20` | Servidor web e SSH autorizado |
+| `dns-lab` | `192.168.56.53` | Resolver DNS de laboratório |
+| Rede | `192.168.56.0/24` | Segmento isolado de testes |
 
 ```text
-Definir autorização e escopo
-          |
-          v
-Descobrir hosts permitidos
-          |
-          v
-Identificar portas e protocolos necessários
-          |
-          v
-Identificar serviço e versão, quando autorizado
-          |
-          v
-Validar achados manualmente e registrar evidências
-          |
-          v
-Corrigir, testar novamente e fechar o relatório
+admin-lab                         web-lab
+192.168.56.10  ----------------  192.168.56.20
+       |                                 |
+       +---------- 192.168.56.0/24 ------+
+                         |
+                      dns-lab
+                   192.168.56.53
 ```
 
-Por padrão, o Nmap faz descoberta de hosts antes da varredura de portas. A opção `-sn` limita a execução à descoberta, sem varredura de portas. [cite:79]
+Comece em laboratório ou homologação. Em produção, use lista explícita de alvos, pouca quantidade de portas e janela aprovada.
 
 ## 3. Instalação
 
@@ -60,8 +58,8 @@ Por padrão, o Nmap faz descoberta de hosts antes da varredura de portas. A opç
 
 ```bash
 dnf install -y nmap
-nmap --version
 rpm -q nmap
+nmap --version
 ```
 
 ### Debian e Ubuntu
@@ -72,7 +70,7 @@ sudo apt install -y nmap
 nmap --version
 ```
 
-### Verificar binários e documentação local
+### Verificações úteis
 
 ```bash
 command -v nmap
@@ -80,64 +78,121 @@ man nmap
 nmap --help | less
 ```
 
-Prefira o repositório da distribuição. A página oficial também oferece binários e código-fonte para os principais sistemas. [cite:78][cite:82]
+## 4. Como o Nmap funciona
 
-## 4. Laboratório seguro
+Uma execução costuma seguir estas etapas:
 
-Crie uma rede isolada com uma VM de administração e uma VM de teste sob seu controle. Exemplo:
-
-| Ativo | Endereço | Papel |
-| --- | --- | --- |
-| `admin-lab` | `192.168.56.10` | Máquina que executa Nmap |
-| `srv-lab` | `192.168.56.20` | Alvo autorizado |
-| Rede | `192.168.56.0/24` | Rede isolada de laboratório |
-
-Antes de começar, registre: responsável, CIDRs permitidos, data/hora, técnicas autorizadas, limite de taxa, portas prioritárias e procedimento de parada.
-
-## 5. Primeira execução
-
-Descobrir apenas hosts em uma sub-rede de laboratório:
-
-```bash
-nmap -sn 192.168.56.0/24
+```text
+Escopo aprovado
+      |
+      v
+Resolução de nome e rota
+      |
+      v
+Descoberta de host
+      |
+      v
+Varredura de portas TCP/UDP
+      |
+      v
+Detecção de serviço e versão
+      |
+      v
+Scripts NSE, quando autorizados
+      |
+      v
+Validação no ativo e relatório
 ```
 
-Checar portas TCP comuns de um único ativo autorizado:
+Por padrão, o Nmap tenta descobrir hosts antes de varrer portas. Use `-sn` quando quiser somente descoberta; use `-Pn` apenas com justificativa, pois ele assume os alvos como ativos e pode ampliar a duração da execução.
+
+## 5. Estados de porta
+
+| Estado | Interpretação prática | Próxima validação |
+| --- | --- | --- |
+| `open` | Há serviço aceitando conexões | Confirmar processo, owner e necessidade |
+| `closed` | Host respondeu, mas não há serviço na porta | Conferir se serviço deveria estar ativo |
+| `filtered` | Filtro impediu conclusão | Conferir ACL, firewall, rota e security group |
+| `unfiltered` | A porta é alcançável, mas o método não define aberta/fechada | Repetir com técnica apropriada e validar no host |
+| `open|filtered` | Sem resposta suficiente para distinguir | Verificar UDP, firewall e timeout |
+| `closed|filtered` | Resultado ambíguo em técnicas específicas | Confirmar com outro método autorizado |
+
+`filtered` não significa que o host está indisponível: normalmente indica que um filtro bloqueou ou descartou as sondas.
+
+## 6. TCP, UDP e contexto
+
+- **TCP** possui conexão orientada a estado; é comum para SSH, HTTP, HTTPS, bancos de dados e APIs.
+- **UDP** não possui sessão da mesma forma; ausência de resposta pode ser normal, por isso resultados UDP tendem a ser mais lentos e ambíguos.
+- Firewalls, NAT, proxy reverso, balanceador, VPN, IDS/IPS e rota assimétrica podem modificar a visão do scanner.
+
+Portas frequentes para validação controlada:
+
+| Serviço | TCP | UDP | Observação |
+| --- | ---: | ---: | --- |
+| SSH | 22 | — | Administração remota |
+| DNS | 53 | 53 | UDP e TCP podem ser necessários |
+| HTTP | 80 | — | Aplicações web e redirecionamento |
+| HTTPS | 443 | — | Aplicações com TLS |
+| NTP | — | 123 | Sincronização de horário |
+| SNMP | — | 161 | Monitoramento; restringir origem |
+| MySQL | 3306 | — | Normalmente interno |
+| PostgreSQL | 5432 | — | Normalmente interno |
+| Kubernetes API | 6443 | — | Restringir fortemente |
+
+## 7. Primeiros comandos
+
+Descoberta de hosts no laboratório:
+
+```bash
+nmap -sn -n 192.168.56.0/24
+```
+
+Checar portas necessárias em um host:
 
 ```bash
 nmap -sT -p 22,80,443 192.168.56.20
 ```
 
-Identificar serviço e versão nas portas permitidas:
+Identificar serviço e versão com intensidade moderada:
 
 ```bash
-nmap -sV -p 22,80,443 192.168.56.20
+nmap -sT -sV --version-light -p 22,80,443 192.168.56.20
 ```
 
-Salvar saída em formato normal e XML para evidência:
+Registrar evidências em arquivos:
 
 ```bash
 mkdir -p evidencias
-nmap -sV -p 22,80,443 -oN evidencias/srv-lab.txt -oX evidencias/srv-lab.xml 192.168.56.20
+nmap -sT -sV --version-light -p 22,80,443   -oA evidencias/web-lab   192.168.56.20
 ```
 
-## 6. Leitura responsável dos resultados
+## 8. Interpretação responsável
 
-Para cada porta aberta, registre:
+Para cada porta aberta, responda:
 
-- IP, hostname e proprietário do ativo
-- Protocolo, porta, estado e serviço detectado
-- Evidência de versão, quando disponível
-- Necessidade de negócio e responsável pelo serviço
-- Controle de acesso atual: firewall, ACL, VPN ou segmentação
-- Ação: manter, restringir, atualizar, desabilitar ou investigar
+1. O serviço é esperado neste host?
+2. A porta precisa estar acessível a partir da origem do scan?
+3. A regra de firewall está restrita ao menor conjunto de origens?
+4. O serviço está atualizado e com configuração de hardening aplicada?
+5. Existe dono, ticket, documentação e monitoramento?
 
-Uma versão identificada é indício, não confirmação definitiva. Valide com inventário, logs, `systemctl`, configuração do serviço e responsável do sistema.
+Uma porta aberta não confirma vulnerabilidade. Uma versão detectada não prova que uma falha é explorável. Correlacione com pacote instalado, patch do fornecedor, autenticação, segmentação e configuração real.
 
-## 7. Boas práticas
+## 9. Boas práticas
 
-- Comece por um host e poucas portas; aumente o escopo apenas após validar impacto e resultado.
-- Prefira janelas de mudança para ambientes produtivos.
-- Salve evidências fora do repositório público; elas podem expor topologia e versões.
-- Use alvos explícitos, como `192.168.56.20`, em vez de faixas amplas sem necessidade.
-- Trate o resultado como dado sensível de segurança.
+- Use IPs ou listas de alvos explicitamente aprovados.
+- Comece por um host e poucas portas.
+- Prefira `-sT` para verificações simples sem privilégios especiais.
+- Use `-n` quando DNS reverso não for necessário; isso evita atrasos e resultados dependentes de resolução.
+- Salve saída em local protegido; ela pode revelar IPs, serviços e versões.
+- Pare se houver degradação, alertas inesperados ou solicitação do responsável.
+- Faça reteste após cada correção e compare com a linha de base.
+
+## 10. Próximas páginas
+
+| Página | Conteúdo |
+| --- | --- |
+| [Comandos](comandos.html) | Referência de parâmetros e perfis de execução |
+| [Troubleshooting](troubleshooting.html) | Diagnóstico de rede, DNS, firewall e serviços |
+| [NSE](nse.html) | Scripts, automação e auditoria defensiva |
+| [Segurança](seguranca.html) | Baselines, hardening, priorização e reteste |
