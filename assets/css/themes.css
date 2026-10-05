@@ -16,31 +16,24 @@
    ========================================================= */
 
 [data-theme="pangolim"] {
-  /* Fundos gerais */
   --bg-page: #e8e1d5;
   --bg-sidebar: #d8cfc0;
   --bg-main: #e8e1d5;
   --bg-card: #eee8de;
   --bg-hover: #ddd5c8;
 
-  /* Código e exemplos: escuro, mas não preto */
-  --bg-code: #3b3731;
-  --bg-code-header: #302d28;
-  --bg-code-border: #565047;
-  --code-text: #f5efe5;
-  --code-muted: #c2b9aa;
-  --code-accent: #efd39a;
+  --bg-code: #49443d;
+  --bg-code-header: #3c3832;
+  --bg-code-border: #625a50;
+  --code-text: #fff8eb;
 
-  /* Texto geral */
   --text: #625b51;
   --text-strong: #292621;
   --text-muted: #91887b;
 
-  /* Bordas */
   --border: #cfc5b6;
   --border-soft: #ddd5c9;
 
-  /* Destaques */
   --accent: #8b7355;
   --accent-hover: #6f5b43;
   --accent-soft: rgba(139, 115, 85, 0.14);

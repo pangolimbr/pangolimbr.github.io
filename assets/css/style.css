@@ -1401,6 +1401,29 @@ pre code {
   color: inherit;
 }
 
+/* =========================================================
+   Pangolim — blocos de código
+   ========================================================= */
+
+[data-theme="pangolim"] pre,
+[data-theme="pangolim"] .highlight,
+[data-theme="pangolim"] .highlighter-rouge,
+[data-theme="pangolim"] .highlighter-rouge .highlight,
+[data-theme="pangolim"] .highlighter-rouge pre.highlight {
+  background-color: var(--bg-code);
+  color: var(--code-text);
+  border-color: var(--bg-code-border);
+}
+
+/* Texto sem token do syntax highlighting */
+[data-theme="pangolim"] pre code,
+[data-theme="pangolim"] .highlight code,
+[data-theme="pangolim"] .highlight pre,
+[data-theme="pangolim"] .highlight pre code,
+[data-theme="pangolim"] .highlighter-rouge code {
+  background-color: transparent;
+  color: var(--code-text);
+}
 
 /* ---------- Syntax highlighting (paleta fixa, boa em fundos escuros) ---------- */
 
