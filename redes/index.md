@@ -62,7 +62,7 @@ Comece pelos fundamentos e avance para os serviços de resolução de nomes.
 
   <a class="wiki-topic" href="{{ 'redes/nmap/index.html' | relative_url }}">
     <span class="wiki-topic-title">Nmap</span>
-    <span class="wiki-topic-description">Conceitos.</span>
+    <span class="wiki-topic-description">Conceitos, scripts seguros e primeiros comandos.</span>
   </a>
 </div>
 

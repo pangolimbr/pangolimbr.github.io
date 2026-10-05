@@ -8,13 +8,13 @@ description: Base de conhecimento técnico sobre infraestrutura e tecnologia.
   <div class="home-dashboard-hero-content">
     <span class="home-eyebrow">Base de conhecimento técnico</span>
 
-<h1 class="home-title">
-  <span>Pangolim</span>
-</h1>
+  <h1 class="home-title">
+    <span>Pangolim</span>
+  </h1>
 
-<p>
-  Documentação prática para estudo, consulta e administração de ambientes de TI.
-</p>
+  <p>
+    Documentação prática para estudo, consulta e administração de ambientes de TI.
+  </p>
 
   </div>
 
