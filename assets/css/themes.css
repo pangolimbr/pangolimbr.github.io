@@ -10,13 +10,43 @@
 
 /* ---------- Temas ---------- */
 
-/* Contraste alto, bordas quase invisíveis */
+/* =========================================================
+   Pangolim
+   Claro terroso com blocos de código escuros
+   ========================================================= */
+
 [data-theme="pangolim"] {
-  --bg-page:#e8e1d5; --bg-sidebar:#d8cfc0; --bg-main:#e8e1d5; --bg-card:#eee8de; --bg-code:#ded6c9; --bg-hover:#ddd5c8;
-  --text:#625b51; --text-strong:#292621; --text-muted:#91887b;
-  --border:#cfc5b6; --border-soft:#ddd5c9;
-  --accent:#8b7355; --accent-hover:#6f5b43; --accent-soft:rgba(139,115,85,.14);
-  --shadow:rgba(55,45,35,.18);
+  /* Fundos gerais */
+  --bg-page: #e8e1d5;
+  --bg-sidebar: #d8cfc0;
+  --bg-main: #e8e1d5;
+  --bg-card: #eee8de;
+  --bg-hover: #ddd5c8;
+
+  /* Código e exemplos */
+  --bg-code: #1a1917;
+  --bg-code-header: #12110f;
+  --bg-code-border: #3d382f;
+  --code-text: #e9e1d4;
+  --code-muted: #aaa092;
+  --code-accent: #d5b77d;
+
+  /* Texto geral */
+  --text: #625b51;
+  --text-strong: #292621;
+  --text-muted: #91887b;
+
+  /* Bordas */
+  --border: #cfc5b6;
+  --border-soft: #ddd5c9;
+
+  /* Destaques e links */
+  --accent: #8b7355;
+  --accent-hover: #6f5b43;
+  --accent-soft: rgba(139, 115, 85, 0.14);
+
+  /* Sombras */
+  --shadow: rgba(55, 45, 35, 0.18);
 }
 
 [data-theme="pangolim-dark"] {
