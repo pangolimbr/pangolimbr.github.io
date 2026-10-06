@@ -73,6 +73,7 @@ Persistência, movimentação ou impacto
 # 1. Exploração
 
 ## 1.1 Conceito
+{:.no_toc}
 
 Exploração é o processo de aproveitar uma vulnerabilidade existente em um sistema, aplicação, serviço, protocolo ou configuração para obter um comportamento que não deveria ser permitido.
 
@@ -90,6 +91,7 @@ Esse comportamento pode resultar em:
 > Exploração não significa necessariamente execução remota de código. Uma falha de autorização que permite visualizar dados de outro usuário também é uma exploração.
 
 ## 1.2 Onde vulnerabilidades podem existir
+{:.no_toc}
 
 Vulnerabilidades podem estar presentes em:
 
@@ -110,6 +112,7 @@ Vulnerabilidades podem estar presentes em:
 - Permissões excessivas
 
 ## 1.3 Exemplo prático: autorização inadequada
+{:.no_toc}
 
 Considere uma aplicação que possui URLs para visualizar pedidos:
 
@@ -159,6 +162,7 @@ Usuário possui permissão?
 Esses termos são relacionados, mas possuem significados diferentes.
 
 ## 2.1 Vulnerabilidade
+{:.no_toc}
 
 Uma vulnerabilidade é uma fraqueza em software, configuração, processo ou arquitetura que pode permitir um comportamento indesejado.
 
@@ -186,6 +190,7 @@ Exemplos de vulnerabilidades:
 - Política de autenticação fraca
 
 ## 2.2 Exploit
+{:.no_toc}
 
 Um exploit é uma técnica, código, procedimento ou mecanismo utilizado para demonstrar ou aproveitar uma vulnerabilidade.
 
@@ -200,6 +205,7 @@ Comportamento não previsto
 ```
 
 ## 2.3 Exploração
+{:.no_toc}
 
 Exploração é o uso efetivo de uma vulnerabilidade contra um alvo.
 
@@ -217,6 +223,7 @@ Evidência de impacto
 ```
 
 ## 2.4 Exemplo resumido
+{:.no_toc}
 
 | Elemento | Exemplo |
 |---|---|
@@ -282,6 +289,7 @@ Reteste
 ```
 
 ## 3.1 Princípios de uma validação segura
+{:.no_toc}
 
 Uma validação profissional deve buscar responder:
 
@@ -301,6 +309,7 @@ Nem sempre é necessário obter acesso completo ou alterar dados para comprovar 
 # 4. Tipos comuns de exploração
 
 ## 4.1 Exploração de aplicações web
+{:.no_toc}
 
 Falhas comuns em aplicações incluem:
 
@@ -317,6 +326,7 @@ Falhas comuns em aplicações incluem:
 - Gerenciamento inadequado de sessão
 
 ### Exemplo prático: Path Traversal
+{:.no_toc}
 
 Uma aplicação permite baixar documentos por meio de uma URL:
 
@@ -347,6 +357,7 @@ user=joao
 ```
 
 ## 4.2 Exploração de serviços de rede
+{:.no_toc}
 
 Serviços de rede podem apresentar riscos devido a:
 
@@ -378,6 +389,7 @@ APIs internas
 ```
 
 ## 4.3 Exemplo prático: serviço SSH exposto
+{:.no_toc}
 
 Um servidor SSH exposto à internet pode ser necessário, mas exige controles.
 
@@ -410,6 +422,7 @@ Também é importante:
 # 5. Exploração local e remota
 
 ## 5.1 Exploração remota
+{:.no_toc}
 
 Na exploração remota, o atacante interage com o alvo pela rede.
 
@@ -430,6 +443,7 @@ Exemplos:
 - Serviço desatualizado exposto à internet
 
 ## 5.2 Exploração local
+{:.no_toc}
 
 Na exploração local, o usuário ou processo já possui algum nível de acesso ao sistema e tenta obter mais privilégios ou acessar recursos restritos.
 
@@ -453,6 +467,7 @@ Exemplos:
 - Conta de serviço com permissões excessivas
 
 ## 5.3 Exemplo prático: permissões inseguras
+{:.no_toc}
 
 Em Linux, uma configuração sensível não deve permitir leitura por qualquer usuário.
 
@@ -506,6 +521,7 @@ Status: pendente de correção
 ```
 
 ## 6.1 Modelo de evidência
+{:.no_toc}
 
 | Campo | Descrição |
 |---|---|
@@ -525,6 +541,7 @@ Status: pendente de correção
 # 7. Força bruta
 
 ## 7.1 Conceito
+{:.no_toc}
 
 Força bruta é uma técnica baseada em múltiplas tentativas de descobrir um segredo.
 
@@ -550,6 +567,7 @@ Candidato N --> Tentativa
 ```
 
 ## 7.2 Tipos de ataques relacionados
+{:.no_toc}
 
 | Técnica | Descrição | Principal risco |
 |---|---|---|
@@ -560,6 +578,7 @@ Candidato N --> Tentativa
 | Ataque a hash | Tenta recuperar senhas a partir de hashes | KDF fraca ou senha simples |
 
 ## 7.3 Brute force puro
+{:.no_toc}
 
 Exemplo conceitual contra um PIN de quatro dígitos:
 
@@ -584,6 +603,7 @@ A proteção deve considerar:
 - Detecção de comportamento automatizado
 
 ## 7.4 Dictionary attack
+{:.no_toc}
 
 Em um dictionary attack, são utilizadas senhas comuns, previsíveis ou relacionadas ao contexto da organização.
 
@@ -608,6 +628,7 @@ Ponte-Cacto-Livro-Estrela-72
 ```
 
 ## 7.5 Password spraying
+{:.no_toc}
 
 No password spraying, uma mesma senha ou um conjunto pequeno de senhas é testado contra várias contas.
 
@@ -635,6 +656,7 @@ Mesma origem
 ```
 
 ## 7.6 Credential stuffing
+{:.no_toc}
 
 Credential stuffing utiliza credenciais expostas anteriormente em outros serviços.
 
@@ -665,6 +687,7 @@ Controles importantes:
 # 8. Proteção contra ataques de credenciais
 
 ## 8.1 Controles principais
+{:.no_toc}
 
 | Controle | Finalidade |
 |---|---|
@@ -679,6 +702,7 @@ Controles importantes:
 | Monitoramento de contas privilegiadas | Prioriza identidades de maior risco |
 
 ## 8.2 Exemplo prático: rate limiting no Nginx
+{:.no_toc}
 
 Exemplo conceitual para limitar tentativas de autenticação por endereço IP:
 
@@ -700,6 +724,7 @@ Esse exemplo estabelece uma taxa média de cinco requisições por minuto por or
 > Os valores devem ser ajustados de acordo com o perfil da aplicação. Limites muito agressivos podem bloquear usuários legítimos, integrações ou dispositivos compartilhando o mesmo endereço IP.
 
 ## 8.3 Exemplo prático: análise de log SSH
+{:.no_toc}
 
 Exemplo de falhas de autenticação:
 
@@ -776,6 +801,7 @@ Algoritmos modernos de derivação de senha incluem:
 Esses mecanismos tornam cada tentativa mais custosa e dificultam ataques em massa contra bases de hashes comprometidas.
 
 ## 9.1 Boas práticas para armazenamento de senha
+{:.no_toc}
 
 - Usar algoritmos próprios para senhas, não hashes rápidos genéricos
 - Utilizar salt individual por senha
@@ -791,6 +817,7 @@ Esses mecanismos tornam cada tentativa mais custosa e dificultam ataques em mass
 # 10. Evasão
 
 ## 10.1 Conceito
+{:.no_toc}
 
 Evasão é a tentativa de evitar ou reduzir a capacidade de mecanismos de segurança detectarem, bloquearem ou correlacionarem uma atividade suspeita.
 
@@ -812,6 +839,7 @@ Pode estar relacionada a:
 Em um contexto defensivo, estudar evasão ajuda a validar a qualidade dos controles e identificar lacunas de monitoramento.
 
 ## 10.2 Como um controle detecta atividades
+{:.no_toc}
 
 Controles de segurança podem analisar:
 
@@ -834,6 +862,7 @@ Alerta, bloqueio ou registro
 Uma tentativa de evasão busca fazer uma atividade parecer legítima, desconhecida ou menos visível aos sensores.
 
 ## 10.3 Evasão por alteração de características
+{:.no_toc}
 
 Um mecanismo baseado apenas em padrões conhecidos pode procurar uma assinatura específica:
 
@@ -872,6 +901,7 @@ Por isso, controles modernos devem combinar:
 # 11. Evasão em redes
 
 ## 11.1 Fragmentação e ambiguidade
+{:.no_toc}
 
 Em redes, uma mensagem pode ser transmitida em partes.
 
@@ -898,6 +928,7 @@ A defesa envolve:
 - Uso de logs de rede e aplicação
 
 ## 11.2 Exemplo prático: discrepância entre camadas
+{:.no_toc}
 
 Uma requisição HTTP pode ser registrada pelo proxy, mas não pelo WAF, ou vice-versa, dependendo da arquitetura.
 
@@ -976,6 +1007,7 @@ O usuário pode executar esta ação neste recurso?
 ```
 
 ## 12.1 Exemplo prático: API com autorização insuficiente
+{:.no_toc}
 
 Considere uma API interna:
 
@@ -1070,6 +1102,7 @@ Possível ataque de credenciais
 ```
 
 ## 14.1 Indicadores de possível evasão
+{:.no_toc}
 
 - Eventos ausentes entre camadas que deveriam registrar a mesma ação
 - Alteração inesperada de formato de requisições
@@ -1087,6 +1120,7 @@ Possível ataque de credenciais
 # 15. Negação de serviço
 
 ## 15.1 Conceito
+{:.no_toc}
 
 Negação de Serviço, ou DoS, ocorre quando usuários legítimos deixam de conseguir utilizar um serviço normalmente.
 
@@ -1123,6 +1157,7 @@ Indisponibilidade
 ```
 
 ## 15.2 DoS e DDoS
+{:.no_toc}
 
 | Tipo | Origem | Característica |
 |---|---|---|
@@ -1153,6 +1188,7 @@ Representação simplificada de DDoS:
 # 16. Camadas afetadas por DoS
 
 ## 16.1 Camada de rede
+{:.no_toc}
 
 Pode envolver:
 
@@ -1163,6 +1199,7 @@ Pode envolver:
 - Limites de firewall ou appliances
 
 ## 16.2 Camada de transporte
+{:.no_toc}
 
 Pode afetar:
 
@@ -1173,6 +1210,7 @@ Pode afetar:
 - Timeouts de conexão
 
 ## 16.3 Camada de aplicação
+{:.no_toc}
 
 Pode gerar carga excessiva em:
 
@@ -1207,6 +1245,7 @@ Aplicação degradada
 ```
 
 ## 17.1 Exemplo prático: endpoint caro
+{:.no_toc}
 
 Considere uma API de relatórios:
 
@@ -1271,6 +1310,7 @@ Erros:     18%
 ```
 
 ## 18.1 Exemplo prático: análise em Linux
+{:.no_toc}
 
 Verificação inicial de carga:
 
@@ -1350,6 +1390,7 @@ A defesa deve ocorrer em múltiplas camadas.
 | Monitoramento | Detectar degradação antes da indisponibilidade |
 
 ## 19.1 Exemplo prático: limites em Nginx
+{:.no_toc}
 
 Exemplo conceitual de limite de conexões:
 
@@ -1378,6 +1419,7 @@ A configuração ideal depende de:
 - Comportamento esperado de clientes legítimos
 
 ## 19.2 Exemplo prático: timeouts
+{:.no_toc}
 
 Timeouts evitam que conexões lentas ou travadas consumam recursos por tempo excessivo.
 
@@ -1582,6 +1624,7 @@ reason=authorization_denied
 ```
 
 ## 23.1 Boas práticas de logging
+{:.no_toc}
 
 - Sincronizar horário com NTP confiável
 - Usar UTC ou incluir timezone explicitamente
@@ -1629,6 +1672,7 @@ Centenas de falhas em sequência podem indicar força bruta.
 Uma falha de autorização seguida de múltiplas requisições a recursos diferentes pode indicar tentativa de acesso indevido.
 
 ## 24.1 Exemplo de correlação
+{:.no_toc}
 
 ```text
 Evento 1: muitas falhas SSH para a conta admin
@@ -1645,6 +1689,7 @@ A combinação dos eventos aumenta a prioridade do alerta.
 # 25. Exemplos de regras de detecção
 
 ## 25.1 Múltiplas falhas de autenticação
+{:.no_toc}
 
 ```text
 SE
@@ -1664,6 +1709,7 @@ Em menos de 5 minutos
 ```
 
 ## 25.2 Password spraying
+{:.no_toc}
 
 ```text
 SE
@@ -1679,6 +1725,7 @@ ENTÃO
 ```
 
 ## 25.3 Possível DoS
+{:.no_toc}
 
 ```text
 SE
@@ -1692,6 +1739,7 @@ ENTÃO
 ```
 
 ## 25.4 Possível falha de autorização
+{:.no_toc}
 
 ```text
 SE
@@ -1735,6 +1783,7 @@ Erros HTTP:   18%
 A diferença entre o comportamento esperado e o comportamento observado pode gerar um alerta útil.
 
 ## 26.1 Métricas úteis para baseline
+{:.no_toc}
 
 - CPU por serviço
 - Memória disponível
@@ -1783,6 +1832,7 @@ O ambiente deve ser:
 - Autorizado
 
 ## 27.1 Sugestão de componentes
+{:.no_toc}
 
 | Componente | Finalidade |
 |---|---|
@@ -1799,6 +1849,7 @@ O ambiente deve ser:
 # 28. Metodologia de teste autorizado
 
 ## 28.1 Definir escopo
+{:.no_toc}
 
 Documente claramente:
 
@@ -1816,6 +1867,7 @@ Plano de comunicação:
 ```
 
 ## 28.2 Definir impacto aceitável
+{:.no_toc}
 
 Exemplo:
 
@@ -1829,6 +1881,7 @@ Não executar ações fora do escopo aprovado.
 ```
 
 ## 28.3 Coletar evidências
+{:.no_toc}
 
 Registrar:
 
@@ -1845,6 +1898,7 @@ Registrar:
 - Recomendação
 
 ## 28.4 Corrigir
+{:.no_toc}
 
 A correção pode envolver:
 
@@ -1860,6 +1914,7 @@ A correção pode envolver:
 - Criação de alertas
 
 ## 28.5 Retestar
+{:.no_toc}
 
 Após a correção:
 
@@ -1897,6 +1952,7 @@ Reteste realizado
 # 30. Checklists
 
 ## 30.1 Checklist de exploração
+{:.no_toc}
 
 ```text
 [ ] Escopo autorizado
@@ -1913,6 +1969,7 @@ Reteste realizado
 ```
 
 ## 30.2 Checklist de força bruta
+{:.no_toc}
 
 ```text
 [ ] MFA habilitado
@@ -1928,6 +1985,7 @@ Reteste realizado
 ```
 
 ## 30.3 Checklist de evasão
+{:.no_toc}
 
 ```text
 [ ] IDS/IPS atualizado
@@ -1943,6 +2001,7 @@ Reteste realizado
 ```
 
 ## 30.4 Checklist de DoS
+{:.no_toc}
 
 ```text
 [ ] Baseline de tráfego definido
@@ -1990,6 +2049,7 @@ Lições aprendidas
 ```
 
 ## 31.1 Triagem
+{:.no_toc}
 
 Durante a triagem, responda:
 
@@ -2003,6 +2063,7 @@ Durante a triagem, responda:
 - Quem deve ser comunicado?
 
 ## 31.2 Contenção
+{:.no_toc}
 
 A contenção busca reduzir o impacto sem destruir evidências.
 
@@ -2019,6 +2080,7 @@ Possíveis medidas:
 - Colocar aplicação em modo de manutenção controlado
 
 ## 31.3 Evidências
+{:.no_toc}
 
 Durante uma investigação, preserve quando aplicável:
 
@@ -2046,6 +2108,7 @@ Ambientes corporativos devem utilizar mecanismos confiáveis de sincronização,
 # 32. Erros comuns
 
 ## Confiar apenas em antivírus
+{:.no_toc}
 
 Uma solução de endpoint é importante, mas não substitui:
 
@@ -2060,6 +2123,7 @@ Uma solução de endpoint é importante, mas não substitui:
 - Monitoramento
 
 ## Confiar apenas em bloqueio por IP
+{:.no_toc}
 
 Endereços IP podem mudar, ser compartilhados, estar atrás de NAT ou ser distribuídos.
 
@@ -2076,14 +2140,17 @@ A resposta deve considerar também:
 - Geolocalização aproximada, quando aplicável
 
 ## Não possuir baseline
+{:.no_toc}
 
 Sem conhecer o comportamento normal, é mais difícil diferenciar um pico legítimo de um incidente.
 
 ## Não monitorar autenticação
+{:.no_toc}
 
 Ataques de senha podem passar despercebidos quando logs não são centralizados ou alertas não existem.
 
 ## Testar indisponibilidade em produção
+{:.no_toc}
 
 Testes de DoS ou carga agressiva podem causar interrupções reais.
 
@@ -2141,6 +2208,7 @@ Senha comprometida
 # 34. Resumo
 
 ## Exploração
+{:.no_toc}
 
 Aproveita uma vulnerabilidade para gerar comportamento não previsto.
 
@@ -2149,6 +2217,7 @@ Vulnerabilidade --> Exploração --> Impacto
 ```
 
 ## Força bruta
+{:.no_toc}
 
 Realiza múltiplas tentativas para descobrir um segredo.
 
@@ -2157,6 +2226,7 @@ Tentativas --> Validação --> Possível descoberta
 ```
 
 ## Evasão
+{:.no_toc}
 
 Busca reduzir a capacidade de um controle detectar, bloquear ou investigar uma atividade.
 
@@ -2165,6 +2235,7 @@ Atividade --> Alteração ou contorno --> Tentativa de evitar detecção
 ```
 
 ## Negação de serviço
+{:.no_toc}
 
 Explora limitações de capacidade ou comportamento para prejudicar a disponibilidade.
 
