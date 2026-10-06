@@ -197,3 +197,4 @@ Uma porta aberta não confirma vulnerabilidade. Uma versão detectada não prova
 | [NSE](nmap-nse.html) | Scripts, automação e auditoria defensiva |
 | [Segurança](nmap-seguranca.html) | Baselines, hardening, priorização e reteste |
 | [Exploração, Força Bruta, Evasão e Negação de Serviço](exploracao-forca-bruta-evasao.html) | Exploração de Força Bruta e Evasão |
+| [Pentest Autorizado e Operações Ofensivas](pentest-autorizado.html) | Metodologia prática para reconhecimento, validação de vulnerabilidades, exploração controlada e relatório de testes de segurança |
