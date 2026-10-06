@@ -140,15 +140,3 @@
   --accent:#e0e0e0; --accent-hover:#ffffff; --accent-soft:rgba(224,224,224,.10);
   --shadow:rgba(0,0,0,.3);
 }
-
-/* =========================================================
-   Claude
-   ========================================================= */
-
-[data-theme="claude"] {
-  --bg-page:#f7f3ed; --bg-sidebar:#eee9e1; --bg-main:#f7f3ed; --bg-card:#eee9e1; --bg-code:#e8e2d9; --bg-hover:#e4ded5;
-  --text:#5d554c; --text-strong:#292521; --text-muted:#91887d;
-  --border:#d8d0c5; --border-soft:#e3ddd4;
-  --accent:#c15f3c; --accent-hover:#a94f30; --accent-soft:rgba(193,95,60,.12);
-  --shadow:rgba(50,40,30,.12);
-}
