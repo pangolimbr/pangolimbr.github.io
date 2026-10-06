@@ -84,25 +84,3 @@
 
   --shadow: rgba(0,0,0,.28);
 }
-
-[data-theme="pangolim-dark2"] {
-  --bg-page:    #191919;
-  --bg-sidebar: #151515;
-  --bg-main:    #191919;
-  --bg-card:    #1e1e1e;
-  --bg-code:    #151515;
-  --bg-hover:   #232323;
-
-  --text:        #ababab;
-  --text-strong: #d2d2d2;
-  --text-muted:  #727272;
-
-  --border:      #2d2d2d;
-  --border-soft: #272727;
-
-  --accent:       #bfbfbf;
-  --accent-hover: #d6d6d6;
-  --accent-soft:  rgba(191,191,191,.055);
-
-  --shadow: rgba(0,0,0,.25);
-}
