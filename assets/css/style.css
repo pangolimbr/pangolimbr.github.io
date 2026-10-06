@@ -1373,6 +1373,25 @@ pre {
     0 2px 8px var(--shadow);
 }
 
+/* ---------- Scrollbar dos blocos de código ---------- */
+
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: var(--bg-code);
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
 code {
   padding: 2px 5px;
 
