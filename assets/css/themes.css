@@ -64,23 +64,23 @@
 }
 
 [data-theme="pangolim-dark"] {
-  --bg-page:    #1a1a1a;
-  --bg-sidebar: #161616;
-  --bg-main:    #1a1a1a;
-  --bg-card:    #202020;
-  --bg-code:    #161616;
-  --bg-hover:   #252525;
+  --bg-page:    #191919;
+  --bg-sidebar: #151515;
+  --bg-main:    #191919;
+  --bg-card:    #1e1e1e;
+  --bg-code:    #151515;
+  --bg-hover:   #232323;
 
-  --text:        #aaaaaa;
-  --text-strong: #d6d6d6;
-  --text-muted:  #707070;
+  --text:        #ababab;
+  --text-strong: #d2d2d2;
+  --text-muted:  #727272;
 
-  --border:      #303030;
-  --border-soft: #292929;
+  --border:      #2d2d2d;
+  --border-soft: #272727;
 
-  --accent:       #c2c2c2;
-  --accent-hover: #dddddd;
-  --accent-soft:  rgba(194,194,194,.06);
+  --accent:       #bfbfbf;
+  --accent-hover: #d6d6d6;
+  --accent-soft:  rgba(191,191,191,.055);
 
-  --shadow: rgba(0,0,0,.28);
+  --shadow: rgba(0,0,0,.25);
 }
