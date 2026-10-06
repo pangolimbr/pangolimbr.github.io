@@ -674,7 +674,8 @@
               Visão Geral
             </a>
           </li>
-          
+
+          <li>
             <details>
 
               <summary>
@@ -766,8 +767,11 @@
                     Materiais de Estudo
                   </a>
                 </li>
+
               </ul>
+
             </details>
+          </li>
 
           <li>
             <details>
@@ -1250,8 +1254,6 @@
             </a>
           </li>
 
-          <!-- Fundamentos -->
-
           <li class="sidebar-subsection">
 
             <details>
@@ -1309,26 +1311,6 @@
             </details>
 
           </li>
-
-          <!-- Futuros diretórios -->
-
-          <!--
-          <li class="sidebar-subsection">
-
-            <details>
-
-              <summary>
-                <span>Configuração</span>
-              </summary>
-
-              <ul>
-                ...
-              </ul>
-
-            </details>
-
-          </li>
-          -->
 
         </ul>
 
@@ -1660,6 +1642,7 @@
          ===================================================== -->
 
     <div class="sidebar-footer">
+
       <a
         href="https://github.com/pangolimbr/pangolimbr.github.io"
         target="_blank"
@@ -1667,21 +1650,40 @@
       >
         Ver no GitHub
       </a>
-      
+
       <label class="theme-switch">
-        <span class="visually-hidden">Tema</span>
+
+        <span class="visually-hidden">
+          Tema
+        </span>
 
         <select id="tema" aria-label="Tema">
-          <optgroup label="Temas"></optgroup>
-          <option value="pangolim">Pangolim</option>
-          <option value="pangolim-dark">Pangolim — Dark</option>
-          <option value="obsidian">Obsidian</option>
-          <option value="smoke">Smoke</option>
-          <option value="ash">Ash</option>
-          <option value="claude">Claude</option>
-          </optgroup>
-        </select>
 
+          <option value="pangolim">
+            Pangolim
+          </option>
+
+          <option value="pangolim-dark">
+            Pangolim — Dark
+          </option>
+
+          <option value="obsidian">
+            Obsidian
+          </option>
+
+          <option value="smoke">
+            Smoke
+          </option>
+
+          <option value="ash">
+            Ash
+          </option>
+
+          <option value="claude">
+            Claude
+          </option>
+
+        </select>
 
       </label>
 
@@ -1722,23 +1724,43 @@
 
     (function () {
 
-      const sel = document.getElementById('tema');
+      const sel =
+        document.getElementById('tema');
 
-      const salvo = document.documentElement.dataset.theme;
-      sel.value = [...sel.options].some(o => o.value === salvo) ? salvo : 'default';
-      sel.addEventListener('change', () => {
+      const salvo =
+        document.documentElement.dataset.theme;
 
-        document.documentElement.dataset.theme = sel.value;
+      sel.value =
+        [...sel.options].some(
+          o => o.value === salvo
+        )
+          ? salvo
+          : 'pangolim';
 
-        try {
-          localStorage.setItem('theme', sel.value);
-        } catch (e) {}
+      sel.addEventListener(
+        'change',
+        () => {
 
-        /* O Mermaid desenha os diagramas uma única vez,
-           então recarregamos para ele ler as cores do novo tema */
-        location.reload();
+          document.documentElement.dataset.theme =
+            sel.value;
 
-      });
+          try {
+            localStorage.setItem(
+              'theme',
+              sel.value
+            );
+          } catch (e) {}
+
+          /*
+           * O Mermaid desenha os diagramas uma única vez,
+           * então recarregamos para ele ler as cores
+           * do novo tema.
+           */
+
+          location.reload();
+
+        }
+      );
 
     })();
 
@@ -1751,519 +1773,701 @@
 
   <script>
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
 
-      const body = document.body;
+        const body =
+          document.body;
 
-      const sidebarCollapse =
-        document.getElementById('sidebarCollapse');
+        const sidebarCollapse =
+          document.getElementById(
+            'sidebarCollapse'
+          );
 
-      const brand =
-        document.querySelector('.brand');
+        const brand =
+          document.querySelector(
+            '.brand'
+          );
 
-      const sidebarLinks =
-        document.querySelectorAll('.sidebar-menu a');
+        const sidebarLinks =
+          document.querySelectorAll(
+            '.sidebar-menu a'
+          );
 
-      const menuGroups =
-        document.querySelectorAll('.sidebar-menu details');
+        const menuGroups =
+          document.querySelectorAll(
+            '.sidebar-menu details'
+          );
 
-      const search =
-        document.getElementById('sidebarSearchInput');
+        const search =
+          document.getElementById(
+            'sidebarSearchInput'
+          );
 
 
-      /* =====================================================
-         Barra lateral (retrair / expandir)
-         ===================================================== */
+        /* =====================================================
+           Barra lateral (retrair / expandir)
+           ===================================================== */
 
-      const setCollapsed = collapsed => {
+        const setCollapsed =
+          collapsed => {
 
-        body.classList.toggle('sidebar-collapsed', collapsed);
+            body.classList.toggle(
+              'sidebar-collapsed',
+              collapsed
+            );
 
-        const label = collapsed
-          ? 'Expandir barra lateral'
-          : 'Minimizar barra lateral';
+            const label =
+              collapsed
+                ? 'Expandir barra lateral'
+                : 'Minimizar barra lateral';
 
-        sidebarCollapse.setAttribute('aria-label', label);
-        sidebarCollapse.setAttribute('title', label);
+            sidebarCollapse.setAttribute(
+              'aria-label',
+              label
+            );
 
-        sidebarCollapse.querySelector('span').textContent =
-          collapsed ? '›' : '‹';
+            sidebarCollapse.setAttribute(
+              'title',
+              label
+            );
 
-        brand.setAttribute(
-          'aria-label',
-          collapsed
-            ? 'Expandir barra lateral'
-            : 'Página inicial do Pangolim'
+            sidebarCollapse
+              .querySelector('span')
+              .textContent =
+                collapsed
+                  ? '›'
+                  : '‹';
+
+            brand.setAttribute(
+              'aria-label',
+              collapsed
+                ? 'Expandir barra lateral'
+                : 'Página inicial do Pangolim'
+            );
+
+          };
+
+
+        sidebarCollapse.addEventListener(
+          'click',
+          () =>
+            setCollapsed(
+              !body.classList.contains(
+                'sidebar-collapsed'
+              )
+            )
         );
 
-      };
 
+        /* No celular, a página já começa com a barra retraída */
 
-      sidebarCollapse.addEventListener(
-        'click',
-        () => setCollapsed(
-          !body.classList.contains('sidebar-collapsed')
-        )
-      );
+        if (
+          window.matchMedia(
+            '(max-width: 900px)'
+          ).matches
+        ) {
 
-
-      /* No celular, a página já começa com a barra retraída */
-
-      if (window.matchMedia('(max-width: 900px)').matches) {
-        setCollapsed(true);
-      }
-
-
-      /* =====================================================
-         Clique no ícone quando a barra estiver retraída
-         ===================================================== */
-
-      brand.addEventListener(
-        'click',
-        event => {
-
-          if (body.classList.contains('sidebar-collapsed')) {
-
-            event.preventDefault();
-
-            setCollapsed(false);
-
-          }
+          setCollapsed(true);
 
         }
-      );
 
 
-      /* =====================================================
-         Página atual
-         ===================================================== */
+        /* =====================================================
+           Clique no ícone quando a barra estiver retraída
+           ===================================================== */
 
-      const currentPath =
-        location.pathname.replace(/index\.html$/, '');
-
-
-      sidebarLinks.forEach(
-        link => {
-
-          const linkPath =
-            new URL(link.href)
-              .pathname
-              .replace(/index\.html$/, '');
-
-
-          if (linkPath === currentPath) {
-
-            link.classList.add('active');
-
-            link.setAttribute('aria-current', 'page');
-
-
-            /* Abre os grupos que contêm a página atual */
-
-            let parent = link.closest('details');
-
-            while (parent) {
-
-              parent.open = true;
-
-              parent = parent.parentElement.closest('details');
-
-            }
-
-          }
-
-        }
-      );
-
-
-      /* =====================================================
-         Dock de ícones (barra retraída)
-         ===================================================== */
-
-      const dockItems =
-        document.querySelectorAll('.dock-item');
-
-
-      /* Destaca o ícone da seção atual */
-
-      dockItems.forEach(
-        item => {
-
-          const itemUrl = new URL(item.href);
-
-          if (itemUrl.origin !== location.origin) {
-            return;
-          }
-
-          const sectionPath =
-            itemUrl.pathname
-              .replace(/index\.html$/, '');
-
-          if (currentPath.startsWith(sectionPath)) {
-
-            item.classList.add('active');
-
-            item.setAttribute('aria-current', 'true');
-
-          }
-
-        }
-      );
-
-
-      /* Tooltip ao lado do ícone */
-
-      const tooltip = document.createElement('div');
-
-      tooltip.className = 'dock-tooltip';
-      tooltip.setAttribute('role', 'tooltip');
-
-      document.body.appendChild(tooltip);
-
-
-      const showTooltip = item => {
-
-        const rect = item.getBoundingClientRect();
-
-        tooltip.textContent = item.dataset.label;
-
-        tooltip.style.left = `${rect.right + 10}px`;
-        tooltip.style.top = `${rect.top + rect.height / 2}px`;
-
-        tooltip.classList.add('visible');
-
-      };
-
-
-      const hideTooltip = () =>
-        tooltip.classList.remove('visible');
-
-
-      dockItems.forEach(
-        item => {
-
-          item.addEventListener(
-            'mouseenter',
-            () => showTooltip(item)
-          );
-
-          item.addEventListener(
-            'focus',
-            () => showTooltip(item)
-          );
-
-          item.addEventListener(
-            'mouseleave',
-            hideTooltip
-          );
-
-          item.addEventListener(
-            'blur',
-            hideTooltip
-          );
-
-        }
-      );
-
-
-      /* =====================================================
-         Busca lateral
-         ===================================================== */
-
-      search.addEventListener(
-        'input',
-        () => {
-
-          const term =
-            search.value
-              .trim()
-              .toLocaleLowerCase('pt-BR');
-
-
-          /* Sem pesquisa: restaura tudo */
-
-          if (!term) {
-
-            sidebarLinks.forEach(
-              link => {
-                link.hidden = false;
-              }
-            );
-
-            menuGroups.forEach(
-              group => {
-                group.hidden = false;
-              }
-            );
-
-            return;
-
-          }
-
-
-          /* Links */
-
-          sidebarLinks.forEach(
-            link => {
-
-              const label =
-                link.textContent
-                  .trim()
-                  .toLocaleLowerCase('pt-BR');
-
-              link.hidden = !label.includes(term);
-
-            }
-          );
-
-
-          /* Grupos expansíveis */
-
-          menuGroups.forEach(
-            group => {
-
-              const summary =
-                group.querySelector(':scope > summary');
-
-              const summaryText =
-                summary
-                  ? summary.textContent
-                      .trim()
-                      .toLocaleLowerCase('pt-BR')
-                  : '';
-
-
-              const visibleChildren =
-                Array.from(
-                  group.querySelectorAll(':scope > ul > li > a')
-                ).some(
-                  link => !link.hidden
-                );
-
-
-              const visibleNestedGroups =
-                Array.from(
-                  group.querySelectorAll(
-                    ':scope > ul > li > details'
-                  )
-                ).some(
-                  nested => !nested.hidden
-                );
-
-
-              const matchesSummary =
-                summaryText.includes(term);
-
-
-              const visible =
-                matchesSummary ||
-                visibleChildren ||
-                visibleNestedGroups;
-
-
-              group.hidden = !visible;
-
-
-              if (visible) {
-                group.open = true;
-              }
-
-            }
-          );
-
-        }
-      );
-
-
-      /* =====================================================
-         Diagramas de fluxo e botão copiar código
-         ===================================================== */
-
-      document
-        .querySelectorAll('pre:not(.mermaid)')
-        .forEach(
-          pre => {
-
-            const code =
-              pre.querySelector('code');
-
+        brand.addEventListener(
+          'click',
+          event => {
 
             if (
-              code &&
-              /[↓→←↔│┌┐└┘├┤▼▲]/.test(
-                code.textContent
+              body.classList.contains(
+                'sidebar-collapsed'
               )
             ) {
 
-              pre.classList.add('flow-diagram');
+              event.preventDefault();
+
+              setCollapsed(false);
+
+            }
+
+          }
+        );
 
 
-              const lines =
-                code.textContent
-                  .split(/\r?\n/)
-                  .map(line => line.trim())
-                  .filter(Boolean);
+        /* =====================================================
+           Página atual
+           ===================================================== */
+
+        const currentPath =
+          location.pathname
+            .replace(
+              /index\.html$/,
+              ''
+            );
 
 
-              const isLinearFlow =
-                lines.length >= 5 &&
-                lines.every(
-                  (line, index) => {
+        sidebarLinks.forEach(
+          link => {
 
-                    if (index % 2 === 1) {
-                      return /^[↓→←↔\s]+$/.test(line);
-                    }
-
-                    return !/[↓→←↔│┌┐└┘├┤▼▲]/.test(line);
-
-                  }
+            const linkPath =
+              new URL(link.href)
+                .pathname
+                .replace(
+                  /index\.html$/,
+                  ''
                 );
 
 
-              if (isLinearFlow) {
+            if (
+              linkPath ===
+              currentPath
+            ) {
 
-                code.textContent =
-                  lines
-                    .filter(
-                      (_, index) => index % 2 === 0
-                    )
-                    .join(' → ');
+              link.classList.add(
+                'active'
+              );
 
-                pre.classList.add('flow-horizontal');
+              link.setAttribute(
+                'aria-current',
+                'page'
+              );
+
+
+              /* Abre os grupos que contêm a página atual */
+
+              let parent =
+                link.closest(
+                  'details'
+                );
+
+              while (parent) {
+
+                parent.open = true;
+
+                parent =
+                  parent.parentElement
+                    .closest(
+                      'details'
+                    );
 
               }
 
             }
 
+          }
+        );
 
-            /* Botão copiar código */
 
-            const button =
-              document.createElement('button');
+        /* =====================================================
+           Dock de ícones (barra retraída)
+           ===================================================== */
 
-            button.className = 'copy-btn';
-            button.type = 'button';
+        const dockItems =
+          document.querySelectorAll(
+            '.dock-item'
+          );
 
-            button.setAttribute(
-              'aria-label',
-              'Copiar código'
+
+        /* Destaca o ícone da seção atual */
+
+        dockItems.forEach(
+          item => {
+
+            const itemUrl =
+              new URL(item.href);
+
+            if (
+              itemUrl.origin !==
+              location.origin
+            ) {
+
+              return;
+
+            }
+
+            const sectionPath =
+              itemUrl.pathname
+                .replace(
+                  /index\.html$/,
+                  ''
+                );
+
+
+            if (
+              currentPath.startsWith(
+                sectionPath
+              )
+            ) {
+
+              item.classList.add(
+                'active'
+              );
+
+              item.setAttribute(
+                'aria-current',
+                'true'
+              );
+
+            }
+
+          }
+        );
+
+
+        /* =====================================================
+           Tooltip ao lado do ícone
+           ===================================================== */
+
+        const tooltip =
+          document.createElement(
+            'div'
+          );
+
+        tooltip.className =
+          'dock-tooltip';
+
+        tooltip.setAttribute(
+          'role',
+          'tooltip'
+        );
+
+        document.body.appendChild(
+          tooltip
+        );
+
+
+        const showTooltip =
+          item => {
+
+            const rect =
+              item.getBoundingClientRect();
+
+            tooltip.textContent =
+              item.dataset.label;
+
+            tooltip.style.left =
+              `${rect.right + 10}px`;
+
+            tooltip.style.top =
+              `${rect.top + rect.height / 2}px`;
+
+            tooltip.classList.add(
+              'visible'
             );
 
-            button.setAttribute(
-              'title',
-              'Copiar código'
+          };
+
+
+        const hideTooltip =
+          () =>
+            tooltip.classList.remove(
+              'visible'
             );
 
 
-            button.innerHTML = `
-              <svg
-                class="copy-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect
-                  x="9"
-                  y="9"
-                  width="11"
-                  height="11"
-                  rx="2"
-                ></rect>
+        dockItems.forEach(
+          item => {
 
-                <path
-                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                ></path>
-              </svg>
-            `;
+            item.addEventListener(
+              'mouseenter',
+              () =>
+                showTooltip(item)
+            );
 
+            item.addEventListener(
+              'focus',
+              () =>
+                showTooltip(item)
+            );
 
-            button.addEventListener(
-              'click',
-              async () => {
+            item.addEventListener(
+              'mouseleave',
+              hideTooltip
+            );
 
-                try {
+            item.addEventListener(
+              'blur',
+              hideTooltip
+            );
 
-                  const content =
-                    pre.querySelector('code')?.innerText ||
-                    pre.innerText;
+          }
+        );
 
 
-                  await navigator.clipboard.writeText(
-                    content
+        /* =====================================================
+           Busca lateral
+           ===================================================== */
+
+        search.addEventListener(
+          'input',
+          () => {
+
+            const term =
+              search.value
+                .trim()
+                .toLocaleLowerCase(
+                  'pt-BR'
+                );
+
+
+            /* Sem pesquisa: restaura tudo */
+
+            if (!term) {
+
+              sidebarLinks.forEach(
+                link => {
+
+                  link.hidden =
+                    false;
+
+                }
+              );
+
+              menuGroups.forEach(
+                group => {
+
+                  group.hidden =
+                    false;
+
+                }
+              );
+
+              return;
+
+            }
+
+
+            /* Links */
+
+            sidebarLinks.forEach(
+              link => {
+
+                const label =
+                  link.textContent
+                    .trim()
+                    .toLocaleLowerCase(
+                      'pt-BR'
+                    );
+
+                link.hidden =
+                  !label.includes(term);
+
+              }
+            );
+
+
+            /* Grupos expansíveis */
+
+            menuGroups.forEach(
+              group => {
+
+                const summary =
+                  group.querySelector(
+                    ':scope > summary'
+                  );
+
+                const summaryText =
+                  summary
+                    ? summary.textContent
+                        .trim()
+                        .toLocaleLowerCase(
+                          'pt-BR'
+                        )
+                    : '';
+
+
+                const visibleChildren =
+                  Array.from(
+                    group.querySelectorAll(
+                      ':scope > ul > li > a'
+                    )
+                  ).some(
+                    link =>
+                      !link.hidden
                   );
 
 
-                  button.classList.add('copied');
-
-                  button.setAttribute(
-                    'aria-label',
-                    'Código copiado'
+                const visibleNestedGroups =
+                  Array.from(
+                    group.querySelectorAll(
+                      ':scope > ul > li > details'
+                    )
+                  ).some(
+                    nested =>
+                      !nested.hidden
                   );
 
-                  button.setAttribute(
-                    'title',
-                    'Código copiado'
+
+                const matchesSummary =
+                  summaryText.includes(
+                    term
                   );
 
-                } catch (_) {
 
-                  button.classList.add('copy-error');
+                const visible =
+                  matchesSummary ||
+                  visibleChildren ||
+                  visibleNestedGroups;
 
-                  button.setAttribute(
-                    'aria-label',
-                    'Não foi possível copiar'
+
+                group.hidden =
+                  !visible;
+
+
+                if (visible) {
+
+                  group.open =
+                    true;
+
+                }
+
+              }
+            );
+
+          }
+        );
+
+
+        /* =====================================================
+           Diagramas de fluxo e botão copiar código
+           ===================================================== */
+
+        document
+          .querySelectorAll(
+            'pre:not(.mermaid)'
+          )
+          .forEach(
+            pre => {
+
+              const code =
+                pre.querySelector(
+                  'code'
+                );
+
+
+              /* -------------------------------------------------
+                 Identificação de diagramas de fluxo
+                 ------------------------------------------------- */
+
+              if (
+                code &&
+                /[↓→←↔│┌┐└┘├┤▼▲]/.test(
+                  code.textContent
+                )
+              ) {
+
+                pre.classList.add(
+                  'flow-diagram'
+                );
+
+
+                const lines =
+                  code.textContent
+                    .split(/\r?\n/)
+                    .map(
+                      line =>
+                        line.trim()
+                    )
+                    .filter(Boolean);
+
+
+                const isLinearFlow =
+                  lines.length >= 5 &&
+                  lines.every(
+                    (line, index) => {
+
+                      if (
+                        index % 2 === 1
+                      ) {
+
+                        return /^[↓→←↔\s]+$/.test(
+                          line
+                        );
+
+                      }
+
+                      return !/[↓→←↔│┌┐└┘├┤▼▲]/.test(
+                        line
+                      );
+
+                    }
                   );
 
-                  button.setAttribute(
-                    'title',
-                    'Não foi possível copiar'
+
+                if (isLinearFlow) {
+
+                  code.textContent =
+                    lines
+                      .filter(
+                        (_, index) =>
+                          index % 2 === 0
+                      )
+                      .join(' → ');
+
+                  pre.classList.add(
+                    'flow-horizontal'
                   );
 
                 }
 
+              }
 
-                setTimeout(
-                  () => {
 
-                    button.classList.remove(
-                      'copied',
+              /* -------------------------------------------------
+                 Botão copiar código
+                 -------------------------------------------------
+                 
+                 O botão continua dentro do <pre>, mas recebe
+                 uma classe específica para que o CSS possa
+                 mantê-lo fixo no lado direito enquanto o
+                 conteúdo do código rola horizontalmente.
+                 ------------------------------------------------- */
+
+              const button =
+                document.createElement(
+                  'button'
+                );
+
+              button.className =
+                'copy-btn copy-btn-fixed';
+
+              button.type =
+                'button';
+
+
+              button.setAttribute(
+                'aria-label',
+                'Copiar código'
+              );
+
+              button.setAttribute(
+                'title',
+                'Copiar código'
+              );
+
+
+              button.innerHTML = `
+                <svg
+                  class="copy-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="9"
+                    y="9"
+                    width="11"
+                    height="11"
+                    rx="2"
+                  ></rect>
+
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  ></path>
+                </svg>
+              `;
+
+
+              button.addEventListener(
+                'click',
+                async () => {
+
+                  try {
+
+                    const content =
+                      pre.querySelector(
+                        'code'
+                      )?.innerText ||
+                      pre.innerText;
+
+
+                    await navigator.clipboard.writeText(
+                      content
+                    );
+
+
+                    button.classList.add(
+                      'copied'
+                    );
+
+                    button.setAttribute(
+                      'aria-label',
+                      'Código copiado'
+                    );
+
+                    button.setAttribute(
+                      'title',
+                      'Código copiado'
+                    );
+
+                  } catch (_) {
+
+                    button.classList.add(
                       'copy-error'
                     );
 
                     button.setAttribute(
                       'aria-label',
-                      'Copiar código'
+                      'Não foi possível copiar'
                     );
 
                     button.setAttribute(
                       'title',
-                      'Copiar código'
+                      'Não foi possível copiar'
                     );
 
-                  },
-                  1800
-                );
-
-              }
-            );
+                  }
 
 
-            pre.appendChild(button);
+                  setTimeout(
+                    () => {
 
-          }
-        );
+                      button.classList.remove(
+                        'copied',
+                        'copy-error'
+                      );
 
-    });
+                      button.setAttribute(
+                        'aria-label',
+                        'Copiar código'
+                      );
+
+                      button.setAttribute(
+                        'title',
+                        'Copiar código'
+                      );
+
+                    },
+                    1800
+                  );
+
+                }
+              );
+
+
+              pre.appendChild(
+                button
+              );
+
+            }
+          );
+
+      }
+    );
 
   </script>
 
 
   <!-- =======================================================
-       Mermaid (cores lidas das variáveis do tema ativo)
+       Mermaid
        ======================================================= -->
 
   <script type="module">
@@ -2273,7 +2477,9 @@
 
 
     document
-      .querySelectorAll('pre code.language-mermaid')
+      .querySelectorAll(
+        'pre code.language-mermaid'
+      )
       .forEach(
         code => {
 
@@ -2281,40 +2487,71 @@
             code.parentElement;
 
           const div =
-            document.createElement('div');
+            document.createElement(
+              'div'
+            );
 
-          div.className = 'mermaid';
+          div.className =
+            'mermaid';
 
           div.textContent =
             code.textContent;
 
-          pre.replaceWith(div);
+          pre.replaceWith(
+            div
+          );
 
         }
       );
 
-const css = getComputedStyle(document.documentElement);
-const v = (name) => css.getPropertyValue(name).trim();
 
-mermaid.initialize({
-  startOnLoad: true,
-  theme: "base",
+    const css =
+      getComputedStyle(
+        document.documentElement
+      );
 
-  themeVariables: {
-    background: v("--bg-main"),
+    const v =
+      name =>
+        css
+          .getPropertyValue(name)
+          .trim();
 
-    primaryColor: v("--bg-card"),
-    primaryTextColor: v("--text-strong"),
-    primaryBorderColor: v("--border"),
 
-    lineColor: v("--accent"),
+    mermaid.initialize({
 
-    secondaryColor: v("--bg-hover"),
-    tertiaryColor: v("--bg-sidebar"),
+      startOnLoad: true,
 
-    nodeTextColor: v("--text-strong")
-  }
-});
+      theme: "base",
+
+      themeVariables: {
+
+        background:
+          v("--bg-main"),
+
+        primaryColor:
+          v("--bg-card"),
+
+        primaryTextColor:
+          v("--text-strong"),
+
+        primaryBorderColor:
+          v("--border"),
+
+        lineColor:
+          v("--accent"),
+
+        secondaryColor:
+          v("--bg-hover"),
+
+        tertiaryColor:
+          v("--bg-sidebar"),
+
+        nodeTextColor:
+          v("--text-strong")
+
+      }
+
+    });
 
   </script>
 

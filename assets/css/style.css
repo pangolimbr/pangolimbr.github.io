@@ -1596,6 +1596,23 @@ pre:hover .copy-btn,
   opacity: 1;
 }
 
+/* =========================================================
+   Botão copiar — permanece visível durante rolagem horizontal
+   ========================================================= */
+
+pre {
+  position: relative;
+}
+
+pre .copy-btn-fixed {
+  position: sticky;
+  right: 0;
+
+  float: right;
+
+  z-index: 10;
+}
+
 .copy-btn:hover {
   border-color: var(--border);
 
