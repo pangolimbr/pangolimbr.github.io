@@ -34,6 +34,16 @@ Comece pela coleta de métricas com o Zabbix e depois explore a visualização n
     <span class="wiki-topic-description">Instalação e configuração inicial do servidor Zabbix.</span>
   </a>
 
+  <a class="wiki-topic" href="{{ 'monitoramento/instalacao-zabbix-agent-linux.html' | relative_url }}">
+    <span class="wiki-topic-title">Instalação do Zabbix Server</span>
+    <span class="wiki-topic-description">Instalação e configuração do servidor Zabbix Agent no Linux.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'monitoramento/instalacao-zabbix-agent-windows.html' | relative_url }}">
+    <span class="wiki-topic-title">Instalação do Zabbix Server</span>
+    <span class="wiki-topic-description">Instalação e configuração inicial do Zabbix Agent no Windows.</span>
+  </a>
+
 </div>
 
 ### Visualização
