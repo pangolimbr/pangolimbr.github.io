@@ -1559,7 +1559,7 @@ pre.flow-horizontal code {
 /* ---------- Botão copiar código ---------- */
 
 .copy-btn {
-  position: sticky;
+  position: absolute;
 
   top: 10px;
   right: 10px;
@@ -1583,6 +1583,8 @@ pre.flow-horizontal code {
   cursor: pointer;
 
   opacity: 0;
+
+  z-index: 10;
 
   transition:
     background 0.16s ease,
