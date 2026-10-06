@@ -196,3 +196,4 @@ Uma porta aberta não confirma vulnerabilidade. Uma versão detectada não prova
 | [Troubleshooting](nmap-troubleshooting.html) | Diagnóstico de rede, DNS, firewall e serviços |
 | [NSE](nmap-nse.html) | Scripts, automação e auditoria defensiva |
 | [Segurança](nmap-seguranca.html) | Baselines, hardening, priorização e reteste |
+| [Exploração, Força Bruta, Evasão e Negação de Serviço](exploracao-forca-bruta-evasao.html) | Exploração de Força Bruta e Evasão |
