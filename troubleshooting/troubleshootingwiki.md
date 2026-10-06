@@ -97,7 +97,7 @@ Address: 192.0.2.200
 ```
 
 ### Conclusão
-
+{:.no_toc}
 DNS funcionando corretamente.
 
 ---
@@ -129,7 +129,7 @@ Connection refused
 ```
 
 ### Conclusão
-
+{:.no_toc}
 A porta 443 não estava disponível.
 
 ---
@@ -155,7 +155,7 @@ curl: (7) Failed to connect to localhost port 443
 ```
 
 ### Conclusão
-
+{:.no_toc}
 O problema estava no próprio servidor.
 
 ---
@@ -175,7 +175,7 @@ Sem retorno
 ```
 
 ### Conclusão
-
+{:.no_toc}
 Nenhum serviço escutando na porta 443.
 
 ---
@@ -196,7 +196,7 @@ docker.socket failed
 ```
 
 ### Conclusão
-
+{:.no_toc}
 O Docker estava indisponível.
 
 ---
@@ -225,7 +225,7 @@ Protocol not supported
 ```
 
 ### Conclusão
-
+{:.no_toc}
 Problema relacionado aos módulos de rede do kernel.
 
 ---
@@ -260,7 +260,7 @@ Module not found
 ```
 
 ### Conclusão
-
+{:.no_toc}
 Os módulos necessários para o funcionamento do Docker não estavam carregados.
 
 ---
@@ -295,7 +295,7 @@ kernel-modules-core
 ```
 
 ### Conclusão
-
+{:.no_toc}
 Os pacotes estavam instalados.
 
 ---
@@ -323,7 +323,7 @@ Resultado:
 ```
 
 ### Conclusão
-
+{:.no_toc}
 Índices dos módulos reconstruídos.
 
 ---
@@ -353,7 +353,7 @@ Resultado:
 ```
 
 ### Conclusão
-
+{:.no_toc}
 Módulos carregados com sucesso.
 
 ---
@@ -388,7 +388,7 @@ docker-proxy
 ```
 
 ### Conclusão
-
+{:.no_toc}
 Docker restaurado.
 
 ---
@@ -410,7 +410,7 @@ wikijs_db
 ```
 
 ### Conclusão
-
+{:.no_toc}
 Containers iniciados automaticamente.
 
 ---
@@ -442,7 +442,7 @@ HTTP/1.1 200 OK
 ```
 
 ### Conclusão
-
+{:.no_toc}
 Wiki restaurada.
 
 ---
