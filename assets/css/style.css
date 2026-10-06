@@ -594,6 +594,11 @@ html::-webkit-scrollbar-thumb:hover {
 
 /* ---------- Scrollbar da sidebar ---------- */
 
+.sidebar-menu::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
 .sidebar-menu::-webkit-scrollbar-track {
   background: var(--bg-sidebar);
 }
