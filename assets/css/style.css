@@ -1407,21 +1407,22 @@ pre code {
   background-color: var(--bg-code);
   color: var(--code-text);
 
-  border: 1px solid var(--bg-code-border);
-  border-radius: 10px;
+  border-color: var(--bg-code-border);
 
-  box-shadow: 0 2px 8px var(--shadow);
+  box-shadow:
+    inset 0 0 20px var(--shadow),
+    0 2px 8px var(--shadow);
 }
 
-/* Contêineres gerados pelo Rouge */
-[data-theme="pangolim"] .highlighter-rouge,
-[data-theme="pangolim"] .highlight {
+/* Estrutura do Rouge sem bordas adicionais */
+[data-theme="pangolim"] .highlight,
+[data-theme="pangolim"] .highlighter-rouge {
   background: transparent;
   border: 0;
   box-shadow: none;
 }
 
-/* Texto dentro dos exemplos */
+/* Código */
 [data-theme="pangolim"] pre code,
 [data-theme="pangolim"] .highlight code,
 [data-theme="pangolim"] .highlight pre,
