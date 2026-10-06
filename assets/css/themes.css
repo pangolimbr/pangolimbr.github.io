@@ -64,23 +64,45 @@
 }
 
 [data-theme="pangolim-dark"] {
-  --bg-page:    #171717;
-  --bg-sidebar: #0f0f0f;
-  --bg-main:    #171717;
+  --bg-page:    #1a1a1a;
+  --bg-sidebar: #161616;
+  --bg-main:    #1a1a1a;
+  --bg-card:    #202020;
+  --bg-code:    #161616;
+  --bg-hover:   #252525;
+
+  --text:        #aaaaaa;
+  --text-strong: #d6d6d6;
+  --text-muted:  #707070;
+
+  --border:      #303030;
+  --border-soft: #292929;
+
+  --accent:       #c2c2c2;
+  --accent-hover: #dddddd;
+  --accent-soft:  rgba(194,194,194,.06);
+
+  --shadow: rgba(0,0,0,.28);
+}
+
+[data-theme="pangolim-dark2"] {
+  --bg-page:    #191919;
+  --bg-sidebar: #151515;
+  --bg-main:    #191919;
   --bg-card:    #1e1e1e;
-  --bg-code:    #101010;
-  --bg-hover:   #272727;
+  --bg-code:    #151515;
+  --bg-hover:   #232323;
 
-  --text:        #b5b5b5;
-  --text-strong: #f0f0f0;
-  --text-muted:  #787878;
+  --text:        #ababab;
+  --text-strong: #d2d2d2;
+  --text-muted:  #727272;
 
-  --border:      #383838;
-  --border-soft: #2b2b2b;
+  --border:      #2d2d2d;
+  --border-soft: #272727;
 
-  --accent:       #d8d8d8;
-  --accent-hover: #ffffff;
-  --accent-soft:  rgba(216,216,216,.08);
+  --accent:       #bfbfbf;
+  --accent-hover: #d6d6d6;
+  --accent-soft:  rgba(191,191,191,.055);
 
-  --shadow: rgba(0,0,0,.40);
+  --shadow: rgba(0,0,0,.25);
 }
