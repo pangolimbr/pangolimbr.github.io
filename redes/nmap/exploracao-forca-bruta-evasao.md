@@ -5,8 +5,10 @@ description: Conceitos, indicadores, controles defensivos e exemplos práticos s
 ---
 
 # Exploração, Força Bruta, Evasão e Negação de Serviço
+{:.no_toc}
 
 ## Objetivos
+{:.no_toc}
 
 Ao final deste conteúdo, você deverá ser capaz de:
 
@@ -21,6 +23,10 @@ Ao final deste conteúdo, você deverá ser capaz de:
 > **Uso autorizado:** realize testes somente em ambientes próprios, laboratórios isolados ou sistemas para os quais exista autorização formal. Em ambientes corporativos, defina escopo, responsáveis, janela de execução, critérios de interrupção e plano de reversão antes de iniciar qualquer atividade.
 
 ---
+
+* Sumário:
+Sumário
+{:toc}
 
 ## Visão geral
 
