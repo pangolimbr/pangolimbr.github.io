@@ -584,6 +584,26 @@ body.sidebar-collapsed .dock-github svg {
   background: var(--text-strong);
 }
 
+/* ---------- Scrollbar dos blocos de código ---------- */
+
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: var(--bg-code);
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+
 .sidebar-menu > a,
 .sidebar-menu details summary {
   display: flex;
