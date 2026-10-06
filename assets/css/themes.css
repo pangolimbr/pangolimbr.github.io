@@ -66,11 +66,39 @@
 
 
 [data-theme="pangolim-dark"] {
-  --bg-page:#1b1916; --bg-sidebar:#12110f; --bg-main:#1b1916; --bg-card:#24211d; --bg-code:#12110f; --bg-hover:#2d2924;
-  --text:#b8afa2; --text-strong:#eee8de; --text-muted:#766e63;
-  --border:#39342e; --border-soft:#2a2722;
-  --accent:#b09570; --accent-hover:#c4a982; --accent-soft:rgba(176,149,112,.14);
-  --shadow:rgba(0,0,0,.5);
+  /* ---------- Fundos ---------- */
+
+  --bg-page:    #151515;
+  --bg-sidebar: #0d0d0d;
+  --bg-main:    #151515;
+  --bg-card:    #1c1c1c;
+  --bg-code:    #0b0b0b;
+  --bg-hover:   #252525;
+
+
+  /* ---------- Textos ---------- */
+
+  --text:        #b8b8b8;
+  --text-strong: #eeeeee;
+  --text-muted:  #777777;
+
+
+  /* ---------- Bordas ---------- */
+
+  --border:      #363636;
+  --border-soft: #292929;
+
+
+  /* ---------- Destaques ---------- */
+
+  --accent:       #d6d6d6;
+  --accent-hover: #ffffff;
+  --accent-soft:  rgba(214, 214, 214, 0.08);
+
+
+  /* ---------- Sombras ---------- */
+
+  --shadow: rgba(0, 0, 0, 0.42);
 }
 
 [data-theme="obsidian"] {
