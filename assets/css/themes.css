@@ -101,12 +101,26 @@
   --shadow: rgba(0, 0, 0, 0.42);
 }
 
-[data-theme="obsidian"] {
-  --bg-page:#080808; --bg-sidebar:#000000; --bg-main:#0a0a0a; --bg-card:#0f0f0f; --bg-code:#000000; --bg-hover:#181818;
-  --text:#cfcfcf; --text-strong:#ffffff; --text-muted:#6e6e6e;
-  --border:#1a1a1a; --border-soft:#101010;
-  --accent:#bfbfbf; --accent-hover:#ffffff; --accent-soft:rgba(191,191,191,.10);
-  --shadow:rgba(0,0,0,.5);
+[data-theme="pangolim-dark2"] {
+  --bg-page:    #171717;
+  --bg-sidebar: #0f0f0f;
+  --bg-main:    #171717;
+  --bg-card:    #1e1e1e;
+  --bg-code:    #101010;
+  --bg-hover:   #272727;
+
+  --text:        #b5b5b5;
+  --text-strong: #f0f0f0;
+  --text-muted:  #787878;
+
+  --border:      #383838;
+  --border-soft: #2b2b2b;
+
+  --accent:       #d8d8d8;
+  --accent-hover: #ffffff;
+  --accent-soft:  rgba(216,216,216,.08);
+
+  --shadow: rgba(0,0,0,.40);
 }
 
 /* Contraste baixo, tudo discreto */
