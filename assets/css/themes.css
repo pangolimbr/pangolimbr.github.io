@@ -1,5 +1,4 @@
-/* themes.css — uso: <html data-theme="nome">
-   6 temas, todos em preto e cinza puros (R=G=B), do mais escuro ao mais claro */
+/* themes.css — uso: <html data-theme="nome"> */
 
 /* ---------- Layout (comum a todos os temas) ---------- */
 :root {
@@ -66,42 +65,6 @@
 
 
 [data-theme="pangolim-dark"] {
-  /* ---------- Fundos ---------- */
-
-  --bg-page:    #151515;
-  --bg-sidebar: #0d0d0d;
-  --bg-main:    #151515;
-  --bg-card:    #1c1c1c;
-  --bg-code:    #0b0b0b;
-  --bg-hover:   #252525;
-
-
-  /* ---------- Textos ---------- */
-
-  --text:        #b8b8b8;
-  --text-strong: #eeeeee;
-  --text-muted:  #777777;
-
-
-  /* ---------- Bordas ---------- */
-
-  --border:      #363636;
-  --border-soft: #292929;
-
-
-  /* ---------- Destaques ---------- */
-
-  --accent:       #d6d6d6;
-  --accent-hover: #ffffff;
-  --accent-soft:  rgba(214, 214, 214, 0.08);
-
-
-  /* ---------- Sombras ---------- */
-
-  --shadow: rgba(0, 0, 0, 0.42);
-}
-
-[data-theme="pangolim-dark2"] {
   --bg-page:    #171717;
   --bg-sidebar: #0f0f0f;
   --bg-main:    #171717;
@@ -121,22 +84,4 @@
   --accent-soft:  rgba(216,216,216,.08);
 
   --shadow: rgba(0,0,0,.40);
-}
-
-/* Contraste baixo, tudo discreto */
-[data-theme="smoke"] {
-  --bg-page:#181818; --bg-sidebar:#101010; --bg-main:#141414; --bg-card:#1d1d1d; --bg-code:#0a0a0a; --bg-hover:#262626;
-  --text:#888888; --text-strong:#dcdcdc; --text-muted:#4f4f4f;
-  --border:#2a2a2a; --border-soft:#1a1a1a;
-  --accent:#6a6a6a; --accent-hover:#999999; --accent-soft:rgba(106,106,106,.15);
-  --shadow:rgba(0,0,0,.35);
-}
-
-/* O mais claro do grupo */
-[data-theme="ash"] {
-  --bg-page:#2a2a2a; --bg-sidebar:#222222; --bg-main:#2a2a2a; --bg-card:#343434; --bg-code:#1c1c1c; --bg-hover:#3f3f3f;
-  --text:#bdbdbd; --text-strong:#fafafa; --text-muted:#7d7d7d;
-  --border:#444444; --border-soft:#343434;
-  --accent:#e0e0e0; --accent-hover:#ffffff; --accent-soft:rgba(224,224,224,.10);
-  --shadow:rgba(0,0,0,.3);
 }
