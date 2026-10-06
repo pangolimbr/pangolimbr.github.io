@@ -1414,14 +1414,6 @@ pre code {
     0 2px 8px var(--shadow);
 }
 
-/* Estrutura do Rouge sem bordas adicionais */
-[data-theme="pangolim"] .highlight,
-[data-theme="pangolim"] .highlighter-rouge {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-
 /* Código */
 [data-theme="pangolim"] pre code,
 [data-theme="pangolim"] .highlight code,
