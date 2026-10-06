@@ -33,6 +33,7 @@ Exemplos:
 ## Diagnóstico
 
 ### Verificação do Locale dentro do Container
+{:.no_toc}
 
 Acessado o pod da aplicação:
 
@@ -59,6 +60,7 @@ Indicando que o container estava utilizando locale padrão POSIX e não UTF-8.
 ---
 
 ### Verificação da JVM
+{:.no_toc}
 
 Executado:
 
@@ -83,6 +85,7 @@ Confirmando que o Java estava operando em UTF-8.
 Foram adicionadas variáveis de ambiente UTF-8 diretamente no Deployment Kubernetes.
 
 ### Comando aplicado
+{:.no_toc}
 
 ```bash
 kubectl set env deployment/aplicacao-exemplo -n aplicacao-exemplo \
@@ -98,6 +101,7 @@ O Kubernetes realizou automaticamente um rollout do Deployment, criando um novo 
 ## Validação
 
 ### Verificar variáveis de ambiente
+{:.no_toc}
 
 ```bash
 kubectl exec -it -n aplicacao-exemplo <pod> -- env | grep -E 'LANG|LC_'
@@ -112,6 +116,7 @@ LC_CTYPE=en_US.UTF-8
 ```
 
 ### Verificar encoding da JVM
+{:.no_toc}
 
 ```bash
 kubectl exec -it -n aplicacao-exemplo <pod> -- \
