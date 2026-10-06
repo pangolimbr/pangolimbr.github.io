@@ -1407,16 +1407,54 @@ pre code {
   background-color: var(--bg-code);
   color: var(--code-text);
 
-  border-color: var(--bg-code-border);
+  border: 0;
+  border-radius: 10px;
 
-  box-shadow: 0 2px 8px var(--shadow);
+  box-shadow: none;
 }
 
-[data-theme="pangolim"] .highlight,
+/* Caixa externa dos exemplos gerados pelo Rouge */
 [data-theme="pangolim"] .highlighter-rouge {
-  background: transparent;
+  margin: 18px 0;
+
+  border: 1px solid var(--bg-code-border);
+  border-radius: 10px;
+
+  background-color: var(--bg-code);
+
+  box-shadow: 0 2px 8px var(--shadow);
+
+  overflow: hidden;
+}
+
+/* Elemento interno não cria uma segunda caixa */
+[data-theme="pangolim"] .highlight {
+  margin: 0;
+  padding: 0;
+
   border: 0;
+  background: transparent;
   box-shadow: none;
+}
+
+/* Código */
+[data-theme="pangolim"] .highlighter-rouge pre {
+  margin: 0;
+  padding: 16px;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Texto */
+[data-theme="pangolim"] pre code,
+[data-theme="pangolim"] .highlight code,
+[data-theme="pangolim"] .highlighter-rouge code {
+  background: transparent;
+  color: var(--code-text);
 }
 
 /* Texto padrão */
