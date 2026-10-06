@@ -2452,10 +2452,20 @@
                 }
               );
 
+/* =====================================================
+   Cria o wrapper para manter o botão fora do scroll
+   horizontal do <pre>
+   ===================================================== */
+   
+const wrapper = document.createElement('div');
 
-              pre.appendChild(
-                button
-              );
+wrapper.className = 'code-wrapper';
+
+pre.parentNode.insertBefore(wrapper, pre);
+
+wrapper.appendChild(pre);
+
+wrapper.appendChild(button);
 
             }
           );

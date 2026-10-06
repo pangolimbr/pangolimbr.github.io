@@ -1590,7 +1590,7 @@ pre.flow-horizontal code {
     opacity 0.16s ease;
 }
 
-pre:hover .copy-btn,
+.code-wrapper:hover .copy-btn,
 .copy-btn:focus-visible {
   opacity: 1;
 }
@@ -1922,4 +1922,17 @@ blockquote p:last-child {
 
     overflow-x: auto;
   }
+}
+
+/* =========================================================
+   Wrapper dos blocos de código
+   ========================================================= */
+
+.code-wrapper {
+  position: relative;
+  margin: 18px 0;
+}
+
+.code-wrapper > pre {
+  margin: 0;
 }
