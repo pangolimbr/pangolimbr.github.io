@@ -1407,57 +1407,21 @@ pre code {
   background-color: var(--bg-code);
   color: var(--code-text);
 
-  border: 0;
-  border-radius: 10px;
-
-  box-shadow: none;
-}
-
-/* Caixa externa dos exemplos gerados pelo Rouge */
-[data-theme="pangolim"] .highlighter-rouge {
-  margin: 18px 0;
-
   border: 1px solid var(--bg-code-border);
   border-radius: 10px;
 
-  background-color: var(--bg-code);
-
   box-shadow: 0 2px 8px var(--shadow);
-
-  overflow: hidden;
 }
 
-/* Elemento interno não cria uma segunda caixa */
+/* Contêineres gerados pelo Rouge */
+[data-theme="pangolim"] .highlighter-rouge,
 [data-theme="pangolim"] .highlight {
-  margin: 0;
-  padding: 0;
-
-  border: 0;
   background: transparent;
+  border: 0;
   box-shadow: none;
 }
 
-/* Código */
-[data-theme="pangolim"] .highlighter-rouge pre {
-  margin: 0;
-  padding: 16px;
-
-  border: 0;
-  border-radius: 0;
-
-  background: transparent;
-  box-shadow: none;
-}
-
-/* Texto */
-[data-theme="pangolim"] pre code,
-[data-theme="pangolim"] .highlight code,
-[data-theme="pangolim"] .highlighter-rouge code {
-  background: transparent;
-  color: var(--code-text);
-}
-
-/* Texto padrão */
+/* Texto dentro dos exemplos */
 [data-theme="pangolim"] pre code,
 [data-theme="pangolim"] .highlight code,
 [data-theme="pangolim"] .highlight pre,
