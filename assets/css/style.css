@@ -46,7 +46,9 @@ body {
   font-size: 15px;
   line-height: 1.65;
 
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 ::selection {
@@ -773,7 +775,7 @@ body.sidebar-collapsed .dock-github svg {
 
 
 /* =========================================================
-   Rodapé da sidebar (seletor de tema + GitHub)
+   Rodapé da sidebar
    ========================================================= */
 
 .sidebar-footer {
@@ -786,7 +788,8 @@ body.sidebar-collapsed .dock-github svg {
   border-top: 1px solid var(--border-soft);
 }
 
-/* Botão do tema: só o ícone */
+
+/* ---------- Seletor de tema ---------- */
 
 .theme-switch {
   position: relative;
@@ -829,8 +832,6 @@ body.sidebar-collapsed .dock-github svg {
 
   pointer-events: none;
 }
-
-/* O select fica invisível por cima do ícone, mas continua clicável */
 
 .theme-switch select {
   position: absolute;
@@ -1414,7 +1415,6 @@ pre code {
     0 2px 8px var(--shadow);
 }
 
-/* Código */
 [data-theme="pangolim"] pre code,
 [data-theme="pangolim"] .highlight code,
 [data-theme="pangolim"] .highlight pre,
@@ -1424,7 +1424,12 @@ pre code {
   color: var(--code-text);
 }
 
-/* ---------- Syntax highlighting (paleta fixa, boa em fundos escuros) ---------- */
+
+/* =========================================================
+   Syntax highlighting
+   ========================================================= */
+
+/* ---------- Paleta padrão ---------- */
 
 .highlight .k,
 .highlight .kd,
@@ -1475,12 +1480,9 @@ pre code {
   color: #79c0ff;
 }
 
-/* =========================================================
-   Pangolim — syntax highlighting para fundo claro
-   Deve ficar depois da paleta fixa de .highlight
-   ========================================================= */
 
-/* Palavras-chave: if, else, function, true, false, kubectl etc. */
+/* ---------- Tema Pangolim claro ---------- */
+
 [data-theme="pangolim"] .highlight .k,
 [data-theme="pangolim"] .highlight .kd,
 [data-theme="pangolim"] .highlight .kn,
@@ -1489,14 +1491,12 @@ pre code {
   color: #9b3c32;
 }
 
-/* Funções, built-ins e comandos reconhecidos */
 [data-theme="pangolim"] .highlight .nb,
 [data-theme="pangolim"] .highlight .nf,
 [data-theme="pangolim"] .highlight .fm {
   color: #285f3d;
 }
 
-/* Strings */
 [data-theme="pangolim"] .highlight .s,
 [data-theme="pangolim"] .highlight .s1,
 [data-theme="pangolim"] .highlight .s2,
@@ -1505,14 +1505,12 @@ pre code {
   color: #295d7a;
 }
 
-/* Números */
 [data-theme="pangolim"] .highlight .m,
 [data-theme="pangolim"] .highlight .mi,
 [data-theme="pangolim"] .highlight .mf {
   color: #6b4c99;
 }
 
-/* Comentários */
 [data-theme="pangolim"] .highlight .c,
 [data-theme="pangolim"] .highlight .c1,
 [data-theme="pangolim"] .highlight .cm {
@@ -1520,25 +1518,24 @@ pre code {
   font-style: italic;
 }
 
-/* Operadores */
 [data-theme="pangolim"] .highlight .o,
 [data-theme="pangolim"] .highlight .ow {
   color: #784d80;
 }
 
-/* Variáveis e nomes */
 [data-theme="pangolim"] .highlight .n,
 [data-theme="pangolim"] .highlight .nv {
   color: #7a4c18;
 }
 
-/* Atributos, comum em YAML, HTML e configurações */
 [data-theme="pangolim"] .highlight .na {
   color: #265c78;
 }
 
 
-/* ---------- Diagramas ---------- */
+/* =========================================================
+   Diagramas
+   ========================================================= */
 
 pre.flow-diagram {
   padding: 12px 14px;
@@ -1556,13 +1553,16 @@ pre.flow-horizontal code {
 }
 
 
-/* ---------- Botão copiar código ---------- */
+/* =========================================================
+   Botão copiar código
+   ========================================================= */
 
 .copy-btn {
   position: absolute;
 
   top: 10px;
   right: 10px;
+  z-index: 10;
 
   display: inline-flex;
   align-items: center;
@@ -1577,14 +1577,11 @@ pre.flow-horizontal code {
   border-radius: 6px;
 
   background: transparent;
-
   color: var(--text-muted);
 
   cursor: pointer;
 
   opacity: 0;
-
-  z-index: 10;
 
   transition:
     background 0.16s ease,
@@ -1596,23 +1593,6 @@ pre.flow-horizontal code {
 pre:hover .copy-btn,
 .copy-btn:focus-visible {
   opacity: 1;
-}
-
-/* =========================================================
-   Botão copiar — permanece visível durante rolagem horizontal
-   ========================================================= */
-
-pre {
-  position: relative;
-}
-
-pre .copy-btn-fixed {
-  position: sticky;
-  right: 0;
-
-  float: right;
-
-  z-index: 10;
 }
 
 .copy-btn:hover {
@@ -1819,7 +1799,7 @@ blockquote p:last-child {
 
 
 /* =========================================================
-   Itens legados (mantidos ocultos)
+   Itens legados
    ========================================================= */
 
 .menu-toggle {
