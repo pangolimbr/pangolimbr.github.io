@@ -1724,51 +1724,70 @@
        Seletor de tema
        ======================================================= -->
 
-  <script>
+<script>
 
-    (function () {
+  (function () {
 
-      const sel =
-        document.getElementById('tema');
+    const sel =
+      document.getElementById('tema');
 
-      const salvo =
-        document.documentElement.dataset.theme;
+    if (!sel) {
+      return;
+    }
 
-      sel.value =
-        [...sel.options].some(
-          o => o.value === salvo
-        )
-          ? salvo
-          : 'pangolim';
+    const temasValidos = [
+      'pangolim',
+      'pangolim-dark'
+    ];
 
-      sel.addEventListener(
-        'change',
-        () => {
+    const temaAtual =
+      document.documentElement.dataset.theme;
 
-          document.documentElement.dataset.theme =
-            sel.value;
+    const tema =
+      temasValidos.includes(temaAtual)
+        ? temaAtual
+        : 'pangolim';
 
-          try {
-            localStorage.setItem(
-              'theme',
-              sel.value
-            );
-          } catch (e) {}
+    sel.value = tema;
 
-          /*
-           * O Mermaid desenha os diagramas uma única vez,
-           * então recarregamos para ele ler as cores
-           * do novo tema.
-           */
+    document.documentElement.dataset.theme =
+      tema;
 
-          location.reload();
+    sel.addEventListener(
+      'change',
+      () => {
 
-        }
-      );
+        const novoTema =
+          temasValidos.includes(sel.value)
+            ? sel.value
+            : 'pangolim';
 
-    })();
+        document.documentElement.dataset.theme =
+          novoTema;
 
-  </script>
+        try {
+
+          localStorage.setItem(
+            'theme',
+            novoTema
+          );
+
+        } catch (e) {}
+
+        /*
+         * O Mermaid desenha os diagramas uma única vez,
+         * então recarregamos para ele ler as cores
+         * do novo tema.
+         */
+
+        location.reload();
+
+      }
+    );
+
+  })();
+
+</script>
 
 
   <!-- =======================================================
