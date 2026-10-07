@@ -30,19 +30,24 @@ Siga esta sequência para compreender como uma página web é construída, da es
 
 <div class="wiki-topic-list">
 
-  <a class="wiki-topic" href="{{ 'programacao/html/index.html' | relative_url }}">
-    <span class="wiki-topic-title">HTML</span>
-    <span class="wiki-topic-description">Estrutura de páginas: textos, links, tabelas, formulários e semântica.</span>
-  </a>
-
-  <a class="wiki-topic" href="{{ 'programacao/css/index.html' | relative_url }}">
-    <span class="wiki-topic-title">CSS</span>
-    <span class="wiki-topic-description">Estilos: seletores, box model, Flexbox, Grid e design responsivo.</span>
+  <a class="wiki-topic" href="{{ 'programacao/cobol/index.html' | relative_url }}">
+    <span class="wiki-topic-title">COBOL</span>
+    <span class="wiki-topic-description">Linguagem de programação.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'programacao/javascript/index.html' | relative_url }}">
     <span class="wiki-topic-title">JavaScript</span>
     <span class="wiki-topic-description">Dos fundamentos ao código assíncrono, com exemplos e exercícios.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'programacao/html/index.html' | relative_url }}">
+    <span class="wiki-topic-title">HTML</span>
+    <span class="wiki-topic-description">Estrutura de páginas: textos, links, tabelas, formulários e semântica.</span>
+  </a>
+  
+  <a class="wiki-topic" href="{{ 'programacao/css/index.html' | relative_url }}">
+    <span class="wiki-topic-title">CSS</span>
+    <span class="wiki-topic-description">Estilos: seletores, box model, Flexbox, Grid e design responsivo.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'programacao/markdown/index.html' | relative_url }}">
@@ -55,10 +60,6 @@ Siga esta sequência para compreender como uma página web é construída, da es
     <span class="wiki-topic-description">Gerador de sites estáticos usado para publicar esta wiki no GitHub Pages.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'programacao/cobol/index.html' | relative_url }}">
-    <span class="wiki-topic-title">COBOL</span>
-    <span class="wiki-topic-description">Linguagem de programação.</span>
-  </a>
 </div>
 
 ---
