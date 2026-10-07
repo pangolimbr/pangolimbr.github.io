@@ -22,6 +22,11 @@ Markdown é uma linguagem de marcação simples para formatar texto. Você escre
     <span class="wiki-topic-description">Como exibir código, comandos e diagramas com destaque de sintaxe.</span>
   </a>
 
+  <a class="wiki-topic" href="{{ 'programacao/markdown/tabelas.html' | relative_url }}">
+    <span class="wiki-topic-title">Tabelas</span>
+    <span class="wiki-topic-description">Guia completo de tabelas em markdown.</span>
+  </a>
+
 </div>
 
 ## Por que usar Markdown
