@@ -11,8 +11,8 @@ As tabelas em Markdown organizam informações em linhas e colunas de forma simp
 
 > **Nota:** tabelas não fazem parte do Markdown original. Elas são uma extensão popularizada pelo **GitHub Flavored Markdown (GFM)** e também suportada pelo kramdown (Jekyll), Pandoc, MkDocs e outros. O comportamento pode variar levemente entre renderizadores.
 
-## Sumário
-{:doc}
+* Sumário:
+{:toc}
 
 ---
 
