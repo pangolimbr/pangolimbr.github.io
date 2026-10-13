@@ -95,7 +95,7 @@ Exemplo ilustrativo:
 ## 5. Configurar a rede
 
 ### 5.1. Identificar as interfaces
-
+{:no_toc}
 ```bash
 ip -br link
 ip -br address
@@ -107,7 +107,7 @@ nmcli connection show
 Identifique a interface de rede, o perfil ativo, o endereço IP atual e a rota padrão.
 
 ### 5.2. Configurar o endereço IP
-
+{:no_toc}
 Em sistemas Rocky Linux, RHEL e outras distribuições que utilizam NetworkManager, identifique o perfil correto:
 
 ```bash
@@ -143,7 +143,7 @@ nmcli device status
 Em distribuições que não utilizam NetworkManager, adapte o procedimento ao gerenciador de rede instalado.
 
 ### 5.3. Testar a conectividade
-
+{:no_toc}
 Teste o gateway:
 
 ```bash
@@ -169,7 +169,7 @@ Se houver conectividade com o gateway, mas não com os servidores necessários, 
 Após a clonagem, verifique os identificadores e arquivos herdados da VM original.
 
 ### 6.1. Machine ID
-
+{:no_toc}
 Consulte o identificador:
 
 ```bash
@@ -181,7 +181,7 @@ O identificador deve ser exclusivo para cada instalação. Não o altere automat
 Se o ambiente exigir a regeneração do `machine-id`, faça isso conforme o procedimento oficial do sistema operacional, preferencialmente antes de registrar a VM em serviços de gerenciamento.
 
 ### 6.2. Chaves SSH
-
+{:no_toc}
 Confira as chaves de host existentes:
 
 ```bash
@@ -314,6 +314,7 @@ ss -lntp
 Esta etapa se aplica quando a máquina clonada será protegida por uma solução Commvault.
 
 ### 11.1. Verificar se o agente já está instalado
+{:no_toc}
 
 Antes de instalar qualquer componente, procure instalações e processos existentes:
 
@@ -336,6 +337,7 @@ ls -ld /opt/commvault /opt/simpana 2>/dev/null
 A ausência de resultados nesses comandos não comprova, isoladamente, que todos os componentes Commvault estão ausentes. Confirme também o inventário de software e os procedimentos da equipe responsável.
 
 ### 11.2. Confirmar os requisitos de instalação
+{:no_toc}
 
 Antes de instalar o agente, valide:
 
@@ -348,6 +350,7 @@ Antes de instalar o agente, valide:
 - [ ] Há credenciais e permissões necessárias para registrar o cliente no CommCell.
 
 ### 11.3. Instalar e registrar o agente
+{:no_toc}
 
 Obtenha o instalador compatível com o sistema operacional por meio do procedimento oficial de distribuição do Commvault adotado pela organização.
 
@@ -358,6 +361,7 @@ Durante o processo, confirme o registro do cliente no ambiente Commvault e utili
 > **Atenção:** não utilize um instalador ou script genérico sem validar a versão e os parâmetros exigidos pelo ambiente.
 
 ### 11.4. Validar a instalação
+{:no_toc}
 
 Após concluir a instalação, verifique os serviços e os processos do agente. Os nomes variam conforme a versão e os componentes instalados.
 
