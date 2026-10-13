@@ -27,7 +27,7 @@ Esta seção reúne a documentação publicada sobre o ambiente e os procediment
 
 <div class="wiki-topic-list">
 
-  <a class="wiki-topic" href="{{ 'linux/configuracao-vm-linux-pos-clone.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'nutanix/clone/configuracao-vm-apos-clone.html' | relative_url }}">
     <span class="wiki-topic-title">Configuração de VM Linux após clone</span>
     <span class="wiki-topic-description">Hostname, rede, identificadores, discos, horário, firewall e preparação para o Commvault.</span>
   </a>
