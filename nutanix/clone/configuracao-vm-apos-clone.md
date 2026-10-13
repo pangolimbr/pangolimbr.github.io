@@ -170,6 +170,7 @@ Após a clonagem, verifique os identificadores e arquivos herdados da VM origina
 
 ### 6.1. Machine ID
 {:no_toc}
+
 Consulte o identificador:
 
 ```bash
